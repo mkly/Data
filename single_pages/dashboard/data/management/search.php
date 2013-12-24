@@ -7,4 +7,5 @@
 	<li class="clearfix"><?= $data->name ? $data->name->getValue('display_sanitized') : $data->dID ?><?= $interface->button(t('Edit'), $this->url('/dashboard/data/management/edit', $dataType->dtID, $data->dID)) ?></li>
 <?php } ?>
 </ul>
+<?php $DataList->displayPagingV2() ?>
 <?= $dashboard->getDashboardPaneFooterWrapper(true) ?>

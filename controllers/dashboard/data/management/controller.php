@@ -115,8 +115,10 @@ class DashboardDataManagementController extends DataDashboardBaseController {
 		}
 		$DataList = new DataList;
 		$DataList->filterByDataTypeID($dtID);
+
+		$this->set('DataList', $DataList);
 		$this->set('dataType', $dataType);
-		$this->set('datas', $DataList->get(0));
+		$this->set('datas', $DataList->getPage());
 
 		$this->render('search');
 	}
