@@ -109,7 +109,10 @@ class DashboardDataManagementController extends DataDashboardBaseController {
 	 */
 	public function search($dtID) {
 		$dataType = new DataType;
-		$dataType->Load('dtID=?', array($dtID));
+		if (!$dataType->Load('dtID=?', array($dtID))) {
+			$this->flashError('Data Type Not Found');
+			$this->redirect($this->path());
+		}
 		$DataList = new DataList;
 		$DataList->filterByDataTypeID($dtID);
 		$this->set('dataType', $dataType);
