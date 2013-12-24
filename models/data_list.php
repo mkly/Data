@@ -3,9 +3,16 @@ defined('C5_EXECUTE') or die('Access Denied.');
 
 class DataList extends DatabaseItemList {
 
+	protected $dataType;
+
+	public function __construct($dataType) {
+		$this->dataType = $dataType;
+	}
+
 	protected function setBaseQuery() {
 		$this->setQuery('SELECT d.dID FROM Datas d ');
 		$this->addToQuery('INNER JOIN DataTypes dt ON dt.dtID = d.dtID ');
+		$this->filter('d.dtID', $this->dataType->dtID);
 	}
 
 	/**
@@ -35,34 +42,6 @@ class DataList extends DatabaseItemList {
 			$this->setBaseQuery();
 		}
 		return parent::getTotal();
-	}
-
-	/**
-	 * @param $dtID int
-	 */
-	public function filterByDataTypeID($dtID) {
-		$this->filter('d.dtID', $dtID, '=');
-	}
-
-	/**
-	 * @param $dtHandle string
-	 */
-	public function filterByDataTypeHandle($dtHandle) {
-		$this->filter('dt.handle', $dtHandle, '=');
-	}
-
-	/**
-	 * @param $dtName string
-	 */
-	public function filterByDataTypeName($dtName) {
-		$this->filter('dt.name', $dtName, '=');
-	}
-
-	/**
-	 * @param $dataType DataType
-	 */
-	public function filterByDataType($dataType) {
-		$this->filterByDataTypeID($dataType->dtID);
 	}
 
 	public function __call($method, $args) {
