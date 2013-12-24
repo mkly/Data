@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<schema version="0.3">
+	<table name="Datas">
+		<field name="dID" type="I">
+			<KEY/>
+			<UNSIGNED/>
+			<AUTOINCREMENT/>
+		</field>
+		<field name="dtID" type="I">
+			<UNSIGNED/>
+			<NOTNULL/>
+		</field>
+		<index name="dtID">
+			<col>dtID</col>
+		</index>
+	</table>
+	<table name="DataTypes">
+		<field name="dtID" type="I">
+			<KEY/>
+			<AUTOINCREMENT/>
+			<NOTNULL/>
+			<UNSIGNED/>
+		</field>
+		<field name="dtHandle" type="C" size="255">
+			<NOTNULL/>
+		</field>
+		<field name="dtName" type="C" size="255">
+			<NOTNULL/>
+		</field>
+		<index name="dtHandle">
+			<col>atHandle</col>
+			<UNIQUE/>
+		</index>
+		<index name="dtName">
+			<col>dtName</col>
+		</index>
+	</table>
+	<table name="DataAttributeKeys">
+		<field name="akID" type="I">
+			<KEY/>
+			<AUTOINCREMENT/>
+			<NOTNULL/>
+			<UNSIGNED/>
+		</field>
+		<field name="dtID" type="I">
+			<NOTNULL/>
+			<UNSIGNED/>
+		</field>
+		<index name="dtID">
+			<col>dtID</col>
+		</index>
+	</table>
+	<table name="DataAttributeValues">
+		<field name="dID" type="I" size="11">
+			<KEY/>
+			<NOTNULL/>
+			<UNSIGNED/>
+		</field>
+		<field name="akID" type="I" size="11">
+			<KEY/>
+			<NOTNULL/>
+			<UNSIGNED/>
+		</field>
+		<field name="avID" type="I" size="11">
+			<NOTNULL/>
+			<UNSIGNED/>
+		</field>
+		<index name="avID">
+			<col>avID</col>
+			<UNIQUE/>
+		</index>
+	</table>
+</schema>
