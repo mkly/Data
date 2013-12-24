@@ -5,6 +5,9 @@ class DataList extends DatabaseItemList {
 
 	protected $dataType;
 
+	/**
+	 * @param $dataType DataType
+	 */
 	public function __construct($dataType) {
 		$this->dataType = $dataType;
 	}
