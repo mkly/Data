@@ -1,6 +1,12 @@
 <?php defined('C5_EXECUTE') or die('Access Denied.') ?>
 <?= $dashboard->getDashboardPaneHeaderWrapper($dataType->dtName, false, false, false) ?>
 <div class="ccm-pane-options">
+	<form class="form-horizontal">
+		<div class="ccm-pane-options-permanent-search">
+			<input placeholder="Name" type="text" class="ccm-input-text" name="name" />
+			<?= $interface->submit(t('Search')) ?>
+		</div>
+	</form>
 </div>
 <div class="ccm-pane-body">
 	<?= $interface->button(t('Create'), $this->url('/dashboard/data/management/create', $dataType->dtID)) ?>
