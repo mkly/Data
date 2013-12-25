@@ -25,6 +25,32 @@ class DataAttributeKey extends AttributeKey {
 	}
 
 	/**
+	 * @param $dID int Data id
+	 * @param $method string
+	 */
+	public static function getAttributes($dID, $method = 'getValue') {
+		$avl = new AttributeValueList;
+
+		foreach (Loader::db()->GetAll('
+			SELECT avID, akID
+			FROM   DataAttributeValues
+			WHERE  dID = ?
+		', array($dID)) as $row) {
+			if ($ak = DataAttributeKey::getByID($row['akID'])) {
+				$data = new Data;
+				$data->Load('dID=?', array($dID));
+				$av = $data->getAttributeValueObject($ak);
+				$avl->addAttributeValue(
+					$ak,
+					$av->getValue($this)
+				);
+			}
+		}
+
+		return $avl;
+	}
+
+	/**
 	 * @param $akID int
 	 */
 	public function load($akID) {
@@ -128,6 +154,8 @@ class DataAttributeKey extends AttributeKey {
 			'akID' => $this->getAttributeKeyID(),
 			'avID' => $av->getAttributeValueID()
 		), array('dID', 'akID'), true);
+
+		$data->reindex();
 	}
 
 	public function add($type, $args, $dataType) {

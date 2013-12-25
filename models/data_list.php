@@ -4,6 +4,7 @@ defined('C5_EXECUTE') or die('Access Denied.');
 class DataList extends DatabaseItemList {
 
 	protected $dataType;
+	protected $attributeClass = 'DataAttributeKey';
 
 	/**
 	 * @param $dataType DataType
@@ -13,9 +14,32 @@ class DataList extends DatabaseItemList {
 	}
 
 	protected function setBaseQuery() {
-		$this->setQuery('SELECT d.dID FROM Datas d ');
-		$this->addToQuery('INNER JOIN DataTypes dt ON dt.dtID = d.dtID ');
+		$this->setQuery('
+			SELECT d.dID
+			FROM Datas d
+		');
+		$this->addToQuery('
+			INNER JOIN DataTypes dt
+			ON         dt.dtID = d.dtID
+		');
 		$this->filter('d.dtID', $this->dataType->dtID);
+		$this->setupAttributeFilters('
+			INNER JOIN DataSearchIndexAttributes usia
+			ON         usia.dID = d.dID
+		');
+	}
+
+	/**
+	 * @param $handle string Handle for Data Attribute without prefix
+	 * @param $value string
+	 * @param $comparison string
+	 */
+	public function filterByAttribute($handle, $value, $comparison = '=') {
+		return parent::filterByAttribute(
+			'data_' . $this->dataType->dtHandle . '_' . $handle,
+			$value,
+			$comparison
+		);
 	}
 
 	/**

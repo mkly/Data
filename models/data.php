@@ -34,6 +34,7 @@ class Data extends Model {
 		$av->setAttributeKey($ak);
 		return $av;
 	}
+
 	/**
 	 * @param $ak DataAttributeKey
 	 * @param $createIfNotFound boolean
@@ -66,6 +67,22 @@ class Data extends Model {
 		return $av;
 	}
 
+	/**
+	 * @param $ak AttributeKey
+	 * @param $value mixed
+	 */
+	public function setAttribute($ak, $value) {
+		$ak->setAttribute($ak, $value);
+		$this->reindex();
+	}
+
+	public function clearAttribute($ak) {
+		if ($dav = $this->getAttributeValueObject($ak)) {
+			$dav->delete();
+		}
+		$this->reindex();
+	}
+
 	public function Delete() {
 		$db = Loader::db();
 
@@ -88,5 +105,24 @@ class Data extends Model {
 		$dataType = new DataType;
 		$dataType->Load('dtID=?', array($this->dtID));
 		return $dataType;
+	}
+
+	public function reindex() {
+		$db = Loader::db();
+		$db->Execute('
+			DELETE
+			FROM   DataSearchIndexAttributes
+			WHERE  dID = ?
+		', array($this->dID));
+		return AttributeKey::reindex(
+			'DataSearchIndexAttributes',
+			array('dID' => $this->dID),
+			DataAttributeKey::getAttributes($this->dID, 'getSearchIndexValue'),
+			$db->Execute('
+				SELECT *
+				FROM DataSearchIndexAttributes
+				WHERE 1=2
+			')
+		);
 	}
 }
