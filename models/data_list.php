@@ -5,6 +5,7 @@ class DataList extends DatabaseItemList {
 
 	protected $dataType;
 	protected $attributeClass = 'DataAttributeKey';
+	protected $attributeFilters = array();
 
 	/**
 	 * @param $dataType DataType
@@ -24,8 +25,8 @@ class DataList extends DatabaseItemList {
 		');
 		$this->filter('d.dtID', $this->dataType->dtID);
 		$this->setupAttributeFilters('
-			INNER JOIN DataSearchIndexAttributes usia
-			ON         usia.dID = d.dID
+			INNER JOIN DataSearchIndexAttributes dsia
+			ON         dsia.dID = d.dID
 		');
 	}
 

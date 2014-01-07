@@ -118,9 +118,33 @@ class DataAttributeKey extends AttributeKey {
 		return $daks;
 	}
 
+	public static function getList($filters = array()) {
+		$q = '
+			SELECT     akID
+			FROM       AttributeKeys ak
+			INNER JOIN AttributeKeyCategories akc
+			ON         akc.akCategoryID = ak.akCategoryID
+			WHERE      akCategoryHandle = "data"
+		';
+		foreach ($filters as $key => $value) {
+			$q .= ' AND ' . $key . ' = ' . $value . ' ';
+		}
+
+		$list = array();
+		foreach (Loader::db()->GetCol($q) as $akID) {
+			if ($ak = DataAttributeKey::getByID($akID)) {
+				$list[] = $ak;
+			}
+		}
+
+		return $list;
+	}
+
+/*
 	public static function getList() {
 		return parent::getList('data');
 	}
+*/
 
 	public static function getSearchableList() {
 		return parent::getList('data', array('akIsSearchable' => 1));

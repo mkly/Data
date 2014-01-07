@@ -1,0 +1,10 @@
+table.ccm-results-list tr.ccm-list-record a {
+	margin-left: 10px;
+}
+table.ccm-results-list tr.ccm-list-record:hover td {
+	cursor: auto;
+	background-color: #fdfdfd !important;
+}
+table.ccm-results-list tr.ccm-list-record.ccm-list-record-alt:hover td {
+	background-color: #f5f5f5 !important;
+}

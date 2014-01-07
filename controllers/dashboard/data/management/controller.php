@@ -113,8 +113,10 @@ class DashboardDataManagementController extends DataDashboardBaseController {
 			$this->flashError('Data Type Not Found');
 			$this->redirect($this->path());
 		}
-		$DataList = new DataList;
-		$DataList->filterByDataTypeID($dtID);
+		$DataList = new DataList($dataType);
+		if ($name = $this->get('name')) {
+			$DataList->filterByAttribute('name', "%$name%", 'LIKE');
+		}
 
 		$this->set('DataList', $DataList);
 		$this->set('dataType', $dataType);

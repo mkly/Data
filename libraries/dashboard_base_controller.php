@@ -8,12 +8,15 @@ class DataDashboardBaseController extends DashboardBaseController {
 
 	public function on_start() {
 		parent::on_start();
+		$this->addHeaderItem(
+			Loader::helper('html')->css('dashboard.css', 'data')
+		);
 		$this->set('dashboard', Loader::helper('concrete/dashboard'));
 		$this->set('token', Loader::helper('validation/token'));
-		
 	}
 
 	public function on_before_render() {
+		parent::on_before_render();
 		if (isset($_SESSION['flash_error'])) {
 			foreach ($_SESSION['flash_error']->getList() as $error) {
 				$this->error->add($error);
@@ -47,7 +50,7 @@ class DataDashboardBaseController extends DashboardBaseController {
 
 	protected function flashError($text) {
 		if (!isset($_SESSION['flash_error'])) {
-		//	$_SESSION['flash_error'] = Loader::helper('validation/error');
+			$_SESSION['flash_error'] = Loader::helper('validation/error');
 		}
 		$_SESSION['flash_error']->add($text);
 	}
