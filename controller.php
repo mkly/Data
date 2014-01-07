@@ -67,6 +67,7 @@ class DataPackage extends Package {
 			$sp->setAttribute('exclude_nav', 1);
 		}
 
+		BlockType::installBlockTypeFromPackage('data_display', $pkg);
 	}
 
 	public function uninstall() {

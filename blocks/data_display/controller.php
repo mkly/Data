@@ -25,5 +25,7 @@ class DataDisplayBlockController extends BlockController {
 	}
 
 	public function edit() {
+		$DataType = new DataType;
+		$this->set('dataTypes', $DataType->Find('1=1'));
 	}
 }

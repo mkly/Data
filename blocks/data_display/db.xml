@@ -5,5 +5,13 @@
 			<KEY/>
 			<UNSIGNED/>
 		</field>
+		<field name="dtID" type="I">
+			<UNSIGNED/>
+			<NOTNULL/>
+		</field>
+		<field name="dID" type="I">
+			<UNSIGNED/>
+			<NOTNULL/>
+		</field>
 	</table>
 </schema>
