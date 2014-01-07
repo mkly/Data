@@ -44,6 +44,9 @@ class DashboardDataAdministrationController extends DataDashboardBaseController 
 		$this->redirect($this->path('attributes'), $dataType->dtID);
 	}
 
+	/**
+	 * @param $dtID int DataType id
+	 */
 	public function edit($dtID) {
 		$dataType = new DataType;
 		if (!$dataType->Load('dtID=?', array($dtID))) {
@@ -77,6 +80,9 @@ class DashboardDataAdministrationController extends DataDashboardBaseController 
 		$this->render('edit');
 	}
 
+	/**
+	 * @param $dtID int DataType id
+	 */
 	public function delete($dtID) {
 		$dataType = new DataType;
 		if (!$dataType->Load('dtID=?', array($dtID))) {
