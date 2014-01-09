@@ -3,6 +3,13 @@ defined('C5_EXECUTE') or die('Access Denied.');
 
 class DashboardDataAdministrationController extends DataDashboardBaseController {
 
+	public function on_start() {
+		parent::on_start();
+		$this->set('navigation', array(
+			Page::getByPath('/dashboard/data/management')
+		));
+	}
+
 	public function view() {
 		$DataType = new DataType;
 		$this->set('dataTypes', $DataType->Find('1=1'));
