@@ -10,6 +10,7 @@
 		<div class="ccm-buttons">
 			<?= $interface->submit(t('Update')) ?>
 			<?= $interface->button(t('Delete'), $this->action('delete', $dataType->dtID, $data->dID)) ?>
+			<?= $interface->button(t('Cancel'), $this->action('search', $dataType->dtID)) ?>
 		</div>
 	</div>
 </form>
