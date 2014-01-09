@@ -12,8 +12,8 @@ class DataType extends Model {
 		if (strlen($this->dtHandle) > 255) {
 			$e->add(t('Maximum Handle length is 255 characters'));
 		}
-		if (preg_match('/[^A-z0-9_]/', $this->dtHandle)) {
-			$e->add(t('Handle can only contain A-z 0-9 and _'));
+		if (preg_match('/[^a-z0-9_]/', $this->dtHandle)) {
+			$e->add(t('Handle can only contain a-z 0-9 and _'));
 		}
 		if (strlen($this->dtName) === 0) {
 			$e->add(t('Name is required'));
