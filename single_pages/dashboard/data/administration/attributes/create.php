@@ -5,7 +5,7 @@
 <div class="ccm-pane-body">
 	<?= $form->hidden('akID', 0) ?>
 	<fieldset>
-		<legend><?= t('%s: Basic Details', $type->getAttributeTypeDisplayName()) ?></legend>
+		<legend><?= t('%s: Basic Details', $type->getAttributeTypeName()) ?></legend>
 
 		<div class="clearfix">
 			<?= $form->label('akHandle', t('Handle')) ?>

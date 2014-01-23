@@ -4,7 +4,7 @@
 <form method="post">
 <div class="ccm-pane-body">
 	<h2><?= t('Warning') ?></h2>
-	<p><?= t('You are about to delete the attribute%s%s. There is no undo.', ': ', '<strong>' . $key->getAttributeKeyDisplayName(). '</strong>') ?></p>
+	<p><?= t('You are about to delete the attribute%s%s. There is no undo.', ': ', '<strong>' . $key->getAttributeKeyName(). '</strong>') ?></p>
 </div>
 <div class="ccm-pane-footer">
 	<div class="ccm-buttons">
