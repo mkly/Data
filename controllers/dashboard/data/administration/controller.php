@@ -79,7 +79,7 @@ class DashboardDataAdministrationController extends DataDashboardBaseController 
 
 		$types = array();
 		foreach (AttributeType::getList('data') as $at) {
-			$types[$at->getAttributeTypeID()] = $at->getAttributeTypeDisplayName();
+			$types[$at->getAttributeTypeID()] = $at->getAttributeTypeName();
 		}
 		$this->set('types', $types);
 		$this->set('dataType', $dataType);
