@@ -15,7 +15,7 @@ class DataPackage extends Package {
 		return t('Data for concrete5');
 	}
 
-	public function on_start() {
+	public function registerAutoloaders() {
 		Loader::registerAutoload(array(
 			'DataAttributeKey' => array('model', 'attribute/categories/data', 'data'),
 			'DataAttributeValue' => array('model', 'attribute/values/data', 'data'),
@@ -24,6 +24,10 @@ class DataPackage extends Package {
 			'DataType' => array('model', 'data_type', 'data'),
 			'DataDashboardBaseController' => array('library', 'dashboard_base_controller', 'data')
 		));
+	}
+
+	public function on_start() {
+		$this->registerAutoloaders();
 	}
 
 	public function install() {

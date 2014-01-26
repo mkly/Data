@@ -3,6 +3,8 @@ defined('C5_EXECUTE') or die('Access Denied.');
 
 class Data extends Model {
 
+	public $_table = 'Datas';
+
 	/**
 	 * $data = new Data;
 	 * $data->Load('dID=?', array(1));
