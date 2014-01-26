@@ -11,5 +11,5 @@ install:
   - mkdir -p ./tests/core/concrete5
   - git clone https://github.com/concrete5/concrete5.git ./tests/core/concrete5
   - cp -a ./tests/install ./tests/core/concrete5/web/config/
-  - cp -a ./dist/registration_anywhere ./tests/core/concrete5/web/packages/
+  - cp -a ./dist/data ./tests/core/concrete5/web/packages/
   - ./tests/core/concrete5/cli/install-concrete5.php --config="./tests/test_config_travis.php"
