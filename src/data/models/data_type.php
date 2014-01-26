@@ -4,6 +4,9 @@ defined('C5_EXECUTE') or die('Access Denied.');
 class DataType extends Model {
 
 	public function import($node) {
+		if ($node->getName() !== 'DataType') {
+			throw new DataTypeException(t('Invalid Element'));
+		}
 		$dataType = new DataType;
 		$dataType->dtName = $node->attributes()->dtName;
 		$dataType->dtHandle = $node->attributes()->dtHandle;
