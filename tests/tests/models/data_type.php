@@ -8,7 +8,7 @@ class DataTypeTest extends PHPUnit_Framework_TestCase {
 
 	public function testImportDataType() {
 		$xml = new SimpleXMLElement('
-			<Data dtName="Test" dtHandle="test"/>
+			<DataType dtName="Test" dtHandle="test"/>
 		');
 		$DataType = new DataType;
 		$dataType = $DataType->import($xml);
@@ -16,4 +16,5 @@ class DataTypeTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals('Test', $dataType->dtName);
 		$this->assertEquals('test', $dataType->dtHandle);
 	}
+
 }

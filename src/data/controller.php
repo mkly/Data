@@ -20,8 +20,12 @@ class DataPackage extends Package {
 			'DataAttributeKey' => array('model', 'attribute/categories/data', 'data'),
 			'DataAttributeValue' => array('model', 'attribute/values/data', 'data'),
 			'Data' => array('model', 'data', 'data'),
+			'DataException' => array('model', 'data_exception', 'data'),
 			'DataList' => array('model', 'data_list', 'data'),
+			'DataListException' => array('model', 'data_list_exception', 'data'),
 			'DataType' => array('model', 'data_type', 'data'),
+			'DataTypeException' => array('model', 'data_type_exception', 'data'),
+			'DataBaseModelException' => array('model', 'data_base_model_exception', 'data'),
 			'DataDashboardBaseController' => array('library', 'dashboard_base_controller', 'data')
 		));
 	}
@@ -87,4 +91,5 @@ class DataPackage extends Package {
 			$db->Execute('DROP TABLE IF EXISTS ' . $table );
 		}
 	}
+
 }
