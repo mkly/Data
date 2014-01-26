@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit colors="true"
+         backupGlobals="false"
+         bootstrap="bootstrap.php"
+>
+
+	<testsuites>
+		<testsuite name="concrete5 Data Models Test Suite">
+			<file>./tests/models/attribute/categories/data.php</file>
+			<file>./tests/models/attribute/values/data.php</file>
+			<file>./tests/models/data.php</file>
+			<file>./tests/models/data_list.php</file>
+			<file>./tests/models/data_type.php</file>
+		</testsuite>
+	</testsuites>
+
+</phpunit>

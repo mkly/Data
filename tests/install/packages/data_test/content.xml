@@ -1,0 +1,5 @@
+<concrete5-cif version="1.0">
+	<packages>
+		<package handle="data"/>
+	</packages>
+</concrete5-cif>
