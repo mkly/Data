@@ -3,6 +3,24 @@ defined('C5_EXECUTE') or die('Access Denied.');
 
 class DataType extends Model {
 
+	protected $datas;
+
+	public function __get($name) {
+		$method = 'get' . ucfirst($name);
+		if (method_exists($this, $method)) {
+			return $this->$method();
+		}
+		return parent::__get($name);
+	}
+
+	public function getDatas() {
+		if (isset($this->datas)) return $this->datas;
+
+		$DataList = new DataList($this);
+		$this->datas = $DataList->get();
+		return $this->datas;
+	}
+
 	public function import($node) {
 		if ($node->getName() !== 'DataType') {
 			throw new DataTypeException(t('Invalid Element'));
@@ -11,6 +29,13 @@ class DataType extends Model {
 		$dataType->dtName = $node->attributes()->dtName;
 		$dataType->dtHandle = $node->attributes()->dtHandle;
 		$dataType->Insert();
+		if ($node->children()->Data) {
+			foreach ($node->children()->Data as $data) {
+				$data = new Data;
+				$data->dtID = $dataType->dtID;
+				$data->Insert();
+			}
+		}
 		return $dataType;
 	}
 

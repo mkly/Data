@@ -17,6 +17,19 @@ class DataTypeTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals('test', $dataType->dtHandle);
 	}
 
+	public function testImportDataTypeWithDatas() {
+		$xml = new SimpleXMLElement('
+			<DataType dtName="Testing" dtHandle="testing">
+				<Data/>
+				<Data/>
+				<Data/>
+			</DataType>
+		');
+		$DataType = new DataType;
+		$dataType = $DataType->import($xml);
+		$this->assertEquals(3, count($dataType->datas));
+	}
+
 	public function testImportDataTypeIncorrectElementName() {
 		$xml = new SimpleXMLElement('
 			<Data dtName="Test" dtHandle="test"/>

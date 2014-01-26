@@ -103,6 +103,16 @@ class Data extends Model {
 		return parent::Delete();
 	}
 
+	public function Insert() {
+		parent::Insert();
+		$this->reindex();
+	}
+
+	public function Update() {
+		parent::Update();
+		$this->reindex();
+	}
+
 	public function getDataType() {
 		$dataType = new DataType;
 		$dataType->Load('dtID=?', array($this->dtID));
