@@ -21,11 +21,23 @@ class DataDisplayBlockController extends BlockController {
 	}
 
 	public function add() {
-		$this->edit();
+		$DataType = new DataType;
+		$dataTypes = array();
+		foreach ($DataType->Find('1=1') as $dataType) {
+			$dataTypes[$dataType->dtID] = $dataType->dtName;
+		}
+		$this->set('dataTypes', $dataTypes);
 	}
 
 	public function edit() {
 		$DataType = new DataType;
-		$this->set('dataTypes', $DataType->Find('1=1'));
+		$dataTypes = array();
+		foreach (
+			$DataType->Find('dtID=?', array($this->getBlockControllerData()))
+			as $dataType
+		) {
+			$dataTypes[$dataType->dtID] = $dataType->dtName;
+		}
+		$this->set('dataTypes', $dataTypes);
 	}
 }
