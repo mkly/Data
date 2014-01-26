@@ -127,4 +127,22 @@ class Data extends Model {
 			')
 		);
 	}
+
+	public function import($node) {
+		if ($node->getName() !== 'Data') {
+			throw new DataException(t('Invalid Element'));
+		}
+		$parent = current($node->xpath('parent::*'));
+		if (!$parent || empty($parent->attributes()->dtHandle)) {
+			throw new DataException(t('DataType handle dtHandle not found'));
+		}
+		$dataType = new DataType;
+		if (!$dataType->Load('dtHandle=?', array($parent->attributes()->dtHandle))) {
+			throw new DataException(t('DataType not found'));
+		}
+		$data = new Data;
+		$data->dtID = $dataType->dtID;
+		$data->Insert();
+		return $data;
+	}
 }
