@@ -12,7 +12,7 @@ class DataTypeTest extends PHPUnit_Framework_TestCase {
 		');
 		$DataType = new DataType;
 		$dataType = $DataType->import($xml);
-		$this->assertNotEmpty('dtID', $dataType);
+		$this->assertNotNull($dataType->dtID);
 		$this->assertEquals('Test', $dataType->dtName);
 		$this->assertEquals('test', $dataType->dtHandle);
 	}
