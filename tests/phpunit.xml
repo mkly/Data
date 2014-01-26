@@ -3,6 +3,8 @@
 <phpunit colors="true"
          backupGlobals="false"
          bootstrap="bootstrap.php"
+         convertErrorsToExceptions="true"
+         stopOnFailure="false"
 >
 
 	<testsuites>
@@ -12,6 +14,10 @@
 			<file>./tests/models/data.php</file>
 			<file>./tests/models/data_list.php</file>
 			<file>./tests/models/data_type.php</file>
+			<file>./tests/models/data_base_exception.php</file>
+			<file>./tests/models/data_exception.php</file>
+			<file>./tests/models/data_list_exception.php</file>
+			<file>./tests/models/data_type_exception.php</file>
 		</testsuite>
 	</testsuites>
 
