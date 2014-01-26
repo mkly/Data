@@ -22,8 +22,7 @@ class DataTypeTest extends PHPUnit_Framework_TestCase {
 			<Data dtName="Test" dtHandle="test"/>
 		');
 		$DataType = new DataType;
-		$dataType = new $DataType;
 		$this->setExpectedException('DataTypeException');
-		$dataType->import($xml);
+		$DataType->import($xml);
 	}
 }
