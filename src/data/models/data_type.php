@@ -3,6 +3,14 @@ defined('C5_EXECUTE') or die('Access Denied.');
 
 class DataType extends Model {
 
+	public function import($node) {
+		$dataType = new DataType;
+		$dataType->dtName = $node->attributes()->dtName;
+		$dataType->dtHandle = $node->attributes()->dtHandle;
+		$dataType->Insert();
+		return $dataType;
+	}
+
 	public function validate() {
 		$e = Loader::helper('validation/error');
 
