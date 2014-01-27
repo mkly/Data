@@ -1,7 +1,7 @@
-#!/usr/bin/env php
 <?php
 $dir = dirname(__FILE__);
 echo 'Adding fixtures to ' . $dir;
+exit;
 $xml = new SimpleXMLElement($dir . '/fixtures/database.xml', 0, true);
 foreach ($xml->xpath('/mysqldump/database/table_data') as $table) {
 	$filename = $dir . '/fixtures/' . $table->attributes()->name . '.xml';
