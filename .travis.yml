@@ -20,4 +20,5 @@ before_script:
   - mkdir ./tests/fixtures
   - mysqldump --xml -t -u travis tests > ./tests/fixtures/database.xml
   - mysqldump -u travis tests > ./tests/fixtures/database.sql
+  - ./tests/split_fixtures.php
   - cd tests
