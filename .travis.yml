@@ -21,4 +21,4 @@ before_script:
   - mysqldump --xml -t -u travis tests > ./tests/fixtures/database.xml
   - mysqldump -u travis tests > ./tests/fixtures/database.sql
   - cd tests
-  - php split_fixtures.php
+  - ./split_fixtures.php
