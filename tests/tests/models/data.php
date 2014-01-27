@@ -1,6 +1,6 @@
 <?php
 
-class DataTest extends PHPUnit_Framework_TestCase {
+class DataTest extends DataDatabaseTestCase {
 
 	public function testAutoload() {
 		$this->assertInstanceOf('Data', new Data);
