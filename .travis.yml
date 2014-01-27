@@ -13,7 +13,7 @@ install:
   - cp -a ./tests/install ./tests/core/concrete5/web/config/
   - cp -a ./src/data ./tests/core/concrete5/web/packages/
   - ./tests/core/concrete5/cli/install-concrete5.php --config="./tests/test_config_travis.php"
-  - mkdir ./fixtures
+  - mkdir ./test/fixtures
   - mysqldump --xml -t -u travis tests > ./tests/fixtures/database.xml
   - mysqldump -u travis tests > ./tests/fixtures/database.sql
   - cd tests
