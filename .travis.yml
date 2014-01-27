@@ -7,7 +7,7 @@ php:
 
 install:
   - pear config-set auto_discover 1
-  - pear install phpunit/DbUnit
+  - pear install pear.phpunit.de/PHPUnit
 
 before_script:
   - echo 'short_open_tag = On' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
