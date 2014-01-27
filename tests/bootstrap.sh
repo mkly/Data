@@ -14,3 +14,6 @@ cp -a ./install ./core/concrete5/web/config/
 rm -rf ./core/concrete5/web/packages/*
 ln -s ../../../../../src/data ./core/concrete5/web/packages/data
 ./core/concrete5/cli/install-concrete5.php --config="./test_config.php"
+rm -rf ./fixtures
+mkdir ./fixtures
+mysqldump --xml -t -u $1 -p$2 concrete5_tests > ./fixtures/database.xml
