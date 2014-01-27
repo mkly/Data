@@ -6,8 +6,8 @@ php:
   - 5.5
 
 install:
-  - pear config-set auto_discover 1
-  - pear install pear.phpunit.de/PHPUnit
+  - pyrus set auto_discover 1
+  - pyrus install --force phpunit/DbUnit
 
 before_script:
   - echo 'short_open_tag = On' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
