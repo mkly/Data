@@ -6,6 +6,10 @@ php:
   - 5.5
 
 install:
+  - pear confit-set auto_discover 1
+  - pear install phpunit/DbUnit
+
+before_script:
   - echo 'short_open_tag = On' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - mysql -e 'create database tests;'
   - mkdir -p ./tests/core/concrete5
