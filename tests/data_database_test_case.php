@@ -12,7 +12,10 @@ abstract class DataDatabaseTestCase extends PHPUnit_Extensions_Database_TestCase
 	public function getDataSet() {
 		$dir = CONCRETE_5_DATA_TEST_DIR . '/fixtures/';
 		return new PHPUnit_Extensions_Database_DataSet_CompositeDataSet(array(
-			$this->createMySQLXMLDataSet($dir . 'Datas.xml')
+			$this->createMySQLXMLDataSet($dir . 'Config.xml'),
+			$this->createMySQLXMLDataSet($dir . 'Datas.xml'),
+			$this->createMySQLXMLDataSet($dir . 'DataTypes.xml'),
+			$this->createMySQLXMLDataSet($dir . 'DataAttributeKeys.xml')
 		));
 	}
 }
