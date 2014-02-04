@@ -249,4 +249,22 @@ class DataAttributeKey extends AttributeKey {
 			WHERE  akID = ?
 		', $this->getAttributeKeyID());
 	}
+
+	public function getDataTypeID() {
+		return $this->dtID;
+	}
+
+	public function getDataType() {
+		$dataType = new DataType;
+		$dataType->Load('dtID=?', array($this->dtID));
+		return $dataType;
+	}
+
+	public function getShortHandle() {
+		return preg_replace(
+			'/^data_' . $this->getDataType()->dtHandle . '_/',
+			'',
+			$this->getAttributeKeyHandle()
+		);
+	}
 }
