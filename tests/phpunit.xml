@@ -18,6 +18,9 @@
 			<file>./tests/models/data_exception.php</file>
 			<file>./tests/models/data_list_exception.php</file>
 			<file>./tests/models/data_type_exception.php</file>
+			<file>./tests/models/permission/keys/data_type.php</file>
+			<file>./tests/models/permission/access/categories/data_type.php</file>
+			<file>./tests/models/permission/access/list_items/data_type.php</file>
 		</testsuite>
 	</testsuites>
 

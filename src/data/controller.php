@@ -26,7 +26,10 @@ class DataPackage extends Package {
 			'DataType' => array('model', 'data_type', 'data'),
 			'DataTypeException' => array('model', 'data_type_exception', 'data'),
 			'DataBaseModelException' => array('model', 'data_base_model_exception', 'data'),
-			'DataDashboardBaseController' => array('library', 'dashboard_base_controller', 'data')
+			'DataDashboardBaseController' => array('library', 'dashboard_base_controller', 'data'),
+			'DataTypePermissionKey' => array('model', 'permission/keys/data_type', 'data'),
+			'DataTypePermissionAccess' => array('model', 'permission/access/categories/data_type', 'data'),
+			'DataTypePermissionAccessListItem' => array('model', 'permission/access/list_items/data_type', 'data')
 		));
 	}
 
@@ -36,6 +39,9 @@ class DataPackage extends Package {
 
 	public function install() {
 		$pkg = parent::install();
+
+		$this->registerAutoloaders();
+
 		$akc = AttributeKeyCategory::add(
 			'data',
 			AttributeKeyCategory::ASET_ALLOW_SINGLE, // TODO MULTIPLE
@@ -73,6 +79,44 @@ class DataPackage extends Package {
 				$sp = Page::getByPath('/dashboard/' . $path);
 			}
 			$sp->setAttribute('exclude_nav', 1);
+		}
+
+		$pkc = PermissionKeyCategory::add('data_type', $pkg);
+		foreach (array(
+			'group',
+			'user',
+			'group_set',
+			'group_combination',
+			'page_owner'
+		) as $handle) {
+			if ($paet = PermissionAccessEntityType::getByHandle($handle)) {
+				$pkc->associateAccessEntityType($paet);
+			}
+		}
+
+		foreach (array(
+			'edit_data_type' => array(
+				'name' => t('Edit'),
+				'description' => t('Edit Data Type')
+			),
+			'delete_data_type' => array(
+				'name' => t('Delete'),
+				'description' => t('Delete Data Type')
+			),
+			'create_data_type' => array(
+				'name' => t('Create'),
+				'description' => t('Create Data Type')
+			)
+		) as $keyHandle => $data) {
+			DataTypePermissionKey::add(
+				'data_type',
+				$keyHandle,
+				$data['name'],
+				$data['description'],
+				1,
+				0,
+				$pkg
+			);
 		}
 
 		BlockType::installBlockTypeFromPackage('data_display', $pkg);
