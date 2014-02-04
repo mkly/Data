@@ -95,17 +95,17 @@ class DataPackage extends Package {
 		}
 
 		foreach (array(
-			'edit_data_type' => array(
+			'edit_datas' => array(
 				'name' => t('Edit'),
-				'description' => t('Edit Data Type')
+				'description' => t('Edit Datas')
 			),
-			'delete_data_type' => array(
+			'delete_datas' => array(
 				'name' => t('Delete'),
-				'description' => t('Delete Data Type')
+				'description' => t('Delete Datas')
 			),
-			'create_data_type' => array(
+			'create_datas' => array(
 				'name' => t('Create'),
-				'description' => t('Create Data Type')
+				'description' => t('Create Datas')
 			)
 		) as $keyHandle => $data) {
 			DataTypePermissionKey::add(
