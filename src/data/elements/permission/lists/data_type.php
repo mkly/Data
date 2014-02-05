@@ -10,6 +10,7 @@ $curlh = Loader::helper('concrete/urls');
 		<table class="ccm-permission-grid">
 			<tbody>
 			<?php foreach (DataTypePermissionKey::getList() as $pk) { ?>
+				<?php $pk->setPermissionObject($dataType) ?>
 				<tr>
 					<td class="ccm-permission-grid-name"
 							id="ccm-permission-grid-name-<?= $pk->getPermissionKeyID() ?>">

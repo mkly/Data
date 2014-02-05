@@ -13,7 +13,8 @@ class DataTypePermissionAssignment extends PermissionAssignment {
 			', array(
 				$this->getPermissionObject()->dtID,
 				$this->pk->getPermissionKeyID()
-			))
+			)),
+			$this->pk
 		);
 	}
 
