@@ -47,14 +47,6 @@ switch ($task) {
 	break;
 
 	case 'save_permission':
-/*
-		$pk = DataTypePermissionKey::getByID($pkID);
-		$dataType = new DataType;
-		$dataType->Load('dtID=?', array($dtID));
-		$pk->setPermissionObject($dataType);
-		$pa = PermissionAccess::getByID($paID, $pk);
-		$pa->save($_POST);
-*/
 	break;
 
 	case 'display_access_cell':
