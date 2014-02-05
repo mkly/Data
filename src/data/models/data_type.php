@@ -4,6 +4,7 @@ defined('C5_EXECUTE') or die('Access Denied.');
 class DataType extends Model {
 
 	protected $datas;
+	protected $permissionKeyCategory;
 
 	public function __get($name) {
 		$method = 'get' . ucfirst($name);
@@ -13,12 +14,19 @@ class DataType extends Model {
 		return parent::__get($name);
 	}
 
-	public function getDatas() {
+	protected function getDatas() {
 		if (isset($this->datas)) return $this->datas;
 
 		$DataList = new DataList($this);
 		$this->datas = $DataList->get();
 		return $this->datas;
+	}
+
+	protected function getPermissionKeyCategory() {
+		if (isset($this->permissionKeyCategory)) return $this->permissionKeyCategory;
+
+		$this->permissionKeyCategory = PermissionKeyCategory::getByHandle('data_type');
+		return $this->permissionKeyCategory;
 	}
 
 	public function import($node) {

@@ -13,7 +13,6 @@ class DashboardDataAdministrationController extends DataDashboardBaseController 
 	public function view() {
 		$DataType = new DataType;
 		$this->set('dataTypes', $DataType->Find('1=1'));
-
 	}
 
 	public function create() {
