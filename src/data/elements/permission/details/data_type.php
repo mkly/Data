@@ -2,7 +2,12 @@
 
 <?php
 $pkID = $_REQUEST['pkID'] ? $_REQUEST['pkID'] : null;
+$dtID = $_REQUEST['dtID'] ? $_REQUEST['dtID'] : null;
+
 $pk = DataTypePermissionKey::getByID($pkID);
+$dataType = new DataType;
+$dataType->Load('dtID=?', array($dtID));
+$pk->setPermissionObject($dataType);
 Loader::element('permission/detail', array('permissionKey' => $pk));
 ?>
 <script>

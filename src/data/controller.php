@@ -29,7 +29,8 @@ class DataPackage extends Package {
 			'DataDashboardBaseController' => array('library', 'dashboard_base_controller', 'data'),
 			'DataTypePermissionKey' => array('model', 'permission/keys/data_type', 'data'),
 			'DataTypePermissionAccess' => array('model', 'permission/access/categories/data_type', 'data'),
-			'DataTypePermissionAccessListItem' => array('model', 'permission/access/list_items/data_type', 'data')
+			'DataTypePermissionAccessListItem' => array('model', 'permission/access/list_items/data_type', 'data'),
+			'DataTypePermissionAssignment' => array('model', 'permission/assignments/data_type', 'data')
 		));
 	}
 

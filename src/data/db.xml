@@ -70,4 +70,21 @@
 			<UNIQUE/>
 		</index>
 	</table>
+	<table name="DataTypePermissionAssignments">
+		<field name="dtID" type="I" size="11">
+			<KEY/>
+			<NOTNULL/>
+			<UNSIGNED/>
+		</field>
+		<field name="paID" type="I" size="11">
+			<KEY/>
+			<NOTNULL/>
+			<UNSIGNED/>
+		</field>
+		<field name="pkID" type="I" size="11">
+			<KEY/>
+			<NOTNULL/>
+			<UNSIGNED/>
+		</field>
+	</table>
 </schema>
