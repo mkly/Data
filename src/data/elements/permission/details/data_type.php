@@ -11,5 +11,5 @@ $pk->setPermissionObject($dataType);
 Loader::element('permission/detail', array('permissionKey' => $pk));
 ?>
 <script>
-	var ccm_permissionDialogURL = '<?= Loader::helper('concrete/urls')->getToolsURL('permissions/dialogs/data_type', 'data') ?>';
+	var ccm_permissionDialogURL = '<?= Loader::helper('concrete/urls')->getToolsURL('permissions/dialogs/data_type', 'data') . h('?dtID=' . $dataType->dtID) ?>';
 </script>

@@ -8,7 +8,7 @@
 	</tr>
 	<?php $alt = ''; foreach ($dataTypes as $dataType) { ?>
 		<tr class="ccm-list-record<?= $alt ?>">
-			<td><a href="<?= $dataType->permissionKeyCategory->getToolsURL('display_list') ?>"
+			<td><a href="<?= $dataType->permissionKeyCategory->getToolsURL('display_list') . h('&dtID=' . $dataType->dtID) ?>"
 			       class="btn ccm-button-v2-right"
 			       id="data-permissions-dialog-button"
 			       dialog-title="<?= t('Permissions') ?>"
