@@ -87,4 +87,18 @@ class DataType extends Model {
 		return $e;
 	}
 
+	public function Insert() {
+		parent::Insert();
+		if (PERMISSIONS_MODEL === 'advanced') {
+			foreach (DataTypePermissionKey::getList() as $pk) {
+				$pk->setPermissionObject($this);
+				$pa = PermissionAccess::create($pk);
+				$pe = GroupPermissionAccessEntity::getOrCreate(Group::getByID(ADMIN_GROUP_ID));
+				$pa->addListItem($pe, false, PermissionKey::ACCESS_TYPE_INCLUDE);
+				$pao = $pk->getPermissionAssignmentObject();
+				$pao->assignPermissionAccess($pa);
+			}
+		}
+	}
+
 }
