@@ -30,7 +30,8 @@ class DataPackage extends Package {
 			'DataTypePermissionKey' => array('model', 'permission/keys/data_type', 'data'),
 			'DataTypePermissionAccess' => array('model', 'permission/access/categories/data_type', 'data'),
 			'DataTypePermissionAccessListItem' => array('model', 'permission/access/list_items/data_type', 'data'),
-			'DataTypePermissionAssignment' => array('model', 'permission/assignments/data_type', 'data')
+			'DataTypePermissionAssignment' => array('model', 'permission/assignments/data_type', 'data'),
+			'DataTypePermissionResponse' => array('model', 'permission/response/data_type', 'data')
 		));
 	}
 

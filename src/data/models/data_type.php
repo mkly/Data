@@ -5,6 +5,7 @@ class DataType extends Model {
 
 	protected $datas;
 	protected $permissionKeyCategory;
+	protected $permissions;
 
 	public function __get($name) {
 		$method = 'get' . ucfirst($name);
@@ -29,8 +30,16 @@ class DataType extends Model {
 		return $this->permissionKeyCategory;
 	}
 
+	protected function getPermissions() {
+		return new Permissions($this);
+	}
+
 	protected function isAdvancedPermissions() {
 		return PERMISSIONS_MODEL === 'advanced';
+	}
+
+	public function getPermissionObjectIdentifier() {
+		return $this->dtID;
 	}
 
 	public function import($node) {
