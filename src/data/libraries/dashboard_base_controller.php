@@ -18,9 +18,7 @@ class DataDashboardBaseController extends DashboardBaseController {
 	public function on_before_render() {
 		parent::on_before_render();
 		if (isset($_SESSION['flash_error'])) {
-			foreach ($_SESSION['flash_error']->getList() as $error) {
-				$this->error->add($error);
-			}
+			$this->error->add($_SESSION['flash_error']);
 		}
 
 		if (isset($_SESSION['flash_message'])) {
@@ -49,10 +47,7 @@ class DataDashboardBaseController extends DashboardBaseController {
 	}
 
 	protected function flashError($text) {
-		if (!isset($_SESSION['flash_error'])) {
-			$_SESSION['flash_error'] = Loader::helper('validation/error');
-		}
-		$_SESSION['flash_error']->add($text);
+		$_SESSION['flash_error'] = $text;
 	}
 
 	public function render($view) {
