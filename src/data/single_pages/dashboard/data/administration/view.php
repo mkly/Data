@@ -14,6 +14,7 @@
 				<td><a href="<?= $dataType->permissionKeyCategory->getToolsURL('display_list') . h('&dtID=' . $dataType->dtID) ?>"
 							 class="btn ccm-button-v2-right"
 							 id="data-permissions-dialog-button"
+							 data-permissions-dialog-button=""
 							 dialog-title="<?= t('Permissions') ?>"
 							 dialog-modal="true"
 							 dialog-height="500"
@@ -28,7 +29,7 @@
 <script>
 +function($) {
 	$(function() {
-		$("#data-permissions-dialog-button").dialog();
+		$("[data-permissions-dialog-button]").dialog();
 	});
 }(jQuery);
 </script>
