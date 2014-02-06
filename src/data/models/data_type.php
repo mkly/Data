@@ -31,7 +31,10 @@ class DataType extends Model {
 	}
 
 	protected function getPermissions() {
-		return new Permissions($this);
+		if (isset($this->permissions)) return $this->permissions;
+
+		$this->permissions = new Permissions($this);
+		return $this->permissions;
 	}
 
 	protected function isAdvancedPermissions() {

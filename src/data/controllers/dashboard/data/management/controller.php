@@ -18,6 +18,11 @@ class DashboardDataManagementController extends DataDashboardBaseController {
 			$this->redirect($this->path());
 		}
 
+		if (!$dataType->permissions->canCreateDatas()) {
+			$this->flashError('Access Denied');
+			$this->redirect($this->path());
+		}
+
 		$this->set('dataType', $dataType);
 		$this->set('attributes', DataAttributeKey::getListByDataTypeID($dataType->dtID));
 		$this->set('ah', Loader::helper('form/attribute'));
@@ -47,6 +52,12 @@ class DashboardDataManagementController extends DataDashboardBaseController {
 			$this->flashError('Data Type Not Found');
 			$this->redirect($this->path());
 		}
+
+		if (!$dataType->permissions->canEditDatas()) {
+			$this->flashError('Access Denied');
+			$this->redirect($this->path());
+		}
+
 		$data = new Data;
 		if (!$data->Load('dID=?', array($dID))) {
 			$this->flashError('Data Not Found');
@@ -84,6 +95,12 @@ class DashboardDataManagementController extends DataDashboardBaseController {
 			$this->flashError('Data Type Not Found');
 			$this->redirect($this->path());
 		}
+
+		if (!$dataType->permissions->canDeleteDatas()) {
+			$this->flashError('Access Denied');
+			$this->redirect($this->path());
+		}
+
 		$data = new Data;
 		if (!$data->Load('dID=?', array($dID))) {
 			$this->flashError('Data Not Found');

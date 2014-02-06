@@ -9,7 +9,9 @@
 	</form>
 </div>
 <div class="ccm-pane-body">
-	<?= $interface->button(t('Create'), $this->url('/dashboard/data/management/create', $dataType->dtID)) ?>
+	<?php if ($dataType->permissions->canCreateDatas()) { ?>
+		<?= $interface->button(t('Create'), $this->url('/dashboard/data/management/create', $dataType->dtID)) ?>
+	<?php } ?>
 	<div class="clearfix"></div>
 	<?php if ($datas) { ?>
 		<table class="ccm-results-list">
@@ -18,7 +20,7 @@
 			</tr>
 		<?php $alt = ''; foreach ($datas as $data) { ?>
 			<tr class="ccm-list-record<?= $alt ?>">
-				<td><?= $data->name ? $data->name->getValue('display_sanitized') : $data->dID ?><?= $interface->button(t('Edit'), $this->url('/dashboard/data/management/edit', $dataType->dtID, $data->dID)) ?></td>
+				<td><?= $data->name ? $data->name->getValue('display_sanitized') : $data->dID ?><?php if ($data->getDataType()->permissions->canEditDatas()) { ?><?= $interface->button(t('Edit'), $this->url('/dashboard/data/management/edit', $dataType->dtID, $data->dID)) ?><?php } ?></td>
 			</tr>
 		<?php $alt = $alt ? '' : ' ccm-list-record-alt'; } ?>
 		</table>
