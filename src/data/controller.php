@@ -97,16 +97,28 @@ class DataPackage extends Package {
 		}
 
 		foreach (array(
+			'edit_data_type' => array(
+				'name' => t('Edit Data Type'),
+				'description' => t('Edit Data Type')
+			),
+			'delete_data_type' => array(
+				'name' => t('Delete Data Type'),
+				'description' => t('Delete Data Type')
+			),
+			'create_data_type' => array(
+				'name' => t('Create Data Type'),
+				'description' => t('Create Data Type')
+			),
 			'edit_datas' => array(
-				'name' => t('Edit'),
+				'name' => t('Edit Datas'),
 				'description' => t('Edit Datas')
 			),
 			'delete_datas' => array(
-				'name' => t('Delete'),
+				'name' => t('Delete Datas'),
 				'description' => t('Delete Datas')
 			),
 			'create_datas' => array(
-				'name' => t('Create'),
+				'name' => t('Create Datas'),
 				'description' => t('Create Datas')
 			)
 		) as $keyHandle => $data) {
