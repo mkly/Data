@@ -10,6 +10,7 @@
 	<div class="ccm-pane-footer">
 		<div class="ccm-buttons">
 			<?= $interface->submit(t('Create')) ?>
+			<?= $interface->button(t('Cancel'), $this->url('/dashboard/data/administration')) ?>
 		</div>
 	</div>
 </form>

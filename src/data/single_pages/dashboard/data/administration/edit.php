@@ -10,6 +10,7 @@
 	<div class="ccm-pane-footer">
 		<div class="ccm-buttons">
 			<?= $interface->submit(t('Save')) ?>
+			<?= $interface->button(t('Delete'), $this->url('/dashboard/data/administration/delete', $dataType->dtID)) ?>
 		</div>
 	</div>
 </form>
