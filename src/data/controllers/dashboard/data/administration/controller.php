@@ -101,6 +101,7 @@ class DashboardDataAdministrationController extends DataDashboardBaseController 
 			$this->redirect($this->path());
 		}
 
+		$this->set('dataType', $dataType);
 		$this->render('delete');
 	}
 }

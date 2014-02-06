@@ -29,6 +29,10 @@ class DataType extends Model {
 		return $this->permissionKeyCategory;
 	}
 
+	protected function isAdvancedPermissions() {
+		return PERMISSIONS_MODEL === 'advanced';
+	}
+
 	public function import($node) {
 		if ($node->getName() !== 'DataType') {
 			throw new DataTypeException(t('Invalid Element'));
@@ -89,7 +93,7 @@ class DataType extends Model {
 
 	public function Insert() {
 		parent::Insert();
-		if (PERMISSIONS_MODEL === 'advanced') {
+		if ($this->isAdvancedPermissions()) {
 			foreach (DataTypePermissionKey::getList() as $pk) {
 				$pk->setPermissionObject($this);
 				$pa = PermissionAccess::create($pk);
@@ -99,6 +103,17 @@ class DataType extends Model {
 				$pao->assignPermissionAccess($pa);
 			}
 		}
+	}
+
+	public function Delete() {
+		if ($this->isAdvancedPermissions()) {
+			foreach (DataTypePermissionKey::getList() as $pk) {
+				$pk->setPermissionObject($this);
+				$pk->getPermissionAssignmentObject()
+				   ->clearPermissionAssignment();
+			}
+		}
+		parent::Delete();
 	}
 
 }
