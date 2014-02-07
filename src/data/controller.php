@@ -133,7 +133,6 @@ class DataPackage extends Package {
 			);
 		}
 
-		BlockType::installBlockTypeFromPackage('data_display', $pkg);
 	}
 
 	public function uninstall() {
