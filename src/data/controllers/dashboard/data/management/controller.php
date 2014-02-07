@@ -18,7 +18,7 @@ class DashboardDataManagementController extends DataDashboardBaseController {
 			$this->redirect($this->path());
 		}
 
-		if (!$dataType->permissions->canCreateDatas()) {
+		if (!$dataType->permissions->canCreateData()) {
 			$this->flashError('Access Denied');
 			$this->redirect($this->path());
 		}
@@ -53,7 +53,7 @@ class DashboardDataManagementController extends DataDashboardBaseController {
 			$this->redirect($this->path());
 		}
 
-		if (!$dataType->permissions->canEditDatas()) {
+		if (!$dataType->permissions->canEditData()) {
 			$this->flashError('Access Denied');
 			$this->redirect($this->path());
 		}
@@ -96,7 +96,7 @@ class DashboardDataManagementController extends DataDashboardBaseController {
 			$this->redirect($this->path());
 		}
 
-		if (!$dataType->permissions->canDeleteDatas()) {
+		if (!$dataType->permissions->canDeleteData()) {
 			$this->flashError('Access Denied');
 			$this->redirect($this->path());
 		}

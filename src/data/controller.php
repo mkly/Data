@@ -105,17 +105,21 @@ class DataPackage extends Package {
 				'name' => t('Delete Data Type'),
 				'description' => t('Delete Data Type')
 			),
-			'edit_datas' => array(
-				'name' => t('Edit Datas'),
-				'description' => t('Edit Datas')
+			'edit_data_type_permissions' => array(
+				'name' => t('Edit Data Type Permissions'),
+				'description' => t('Edit Data Type Permissions')
 			),
-			'delete_datas' => array(
-				'name' => t('Delete Datas'),
-				'description' => t('Delete Datas')
+			'edit_data' => array(
+				'name' => t('Edit Data'),
+				'description' => t('Edit Data')
+			),
+			'delete_data' => array(
+				'name' => t('Delete Data'),
+				'description' => t('Delete Data')
 			),
 			'create_datas' => array(
-				'name' => t('Create Datas'),
-				'description' => t('Create Datas')
+				'name' => t('Create Data'),
+				'description' => t('Create Data')
 			)
 		) as $keyHandle => $data) {
 			DataTypePermissionKey::add(

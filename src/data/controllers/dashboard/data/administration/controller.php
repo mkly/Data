@@ -60,6 +60,11 @@ class DashboardDataAdministrationController extends DataDashboardBaseController 
 			$this->redirect($this->path());
 		}
 
+		if (!$dataType->permissions->canEditDataType()) {
+			$this->flashError(t('Access Denied'));
+			$this->redirect($this->path());
+		}
+
 		if ($this->isPost()) {
 			$dataType->dtName = $this->post('dtName');
 			$dataType->dtHandle = $this->post('dtHandle');
@@ -95,6 +100,12 @@ class DashboardDataAdministrationController extends DataDashboardBaseController 
 			$this->flashError(t('Data Type Not Found'));
 			$this->redirect($this->path());
 		}
+
+		if (!$dataType->permissions->canDeleteDataType()) {
+			$this->flashError(t('Access Denied'));
+			$this->redirect($this->path());
+		}
+
 		if ($this->isPost()) {
 			$dataType->Delete();
 			$this->flashSuccess(t('Data Type Deleted'));
@@ -104,4 +115,5 @@ class DashboardDataAdministrationController extends DataDashboardBaseController 
 		$this->set('dataType', $dataType);
 		$this->render('delete');
 	}
+
 }
