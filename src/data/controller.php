@@ -97,6 +97,10 @@ class DataPackage extends Package {
 		}
 
 		foreach (array(
+			'view_data_type' => array(
+				'name' => t('View Data Type'),
+				'description' => t('View Data Type')
+			),
 			'edit_data_type' => array(
 				'name' => t('Edit Data Type'),
 				'description' => t('Edit Data Type')

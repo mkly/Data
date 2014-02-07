@@ -10,6 +10,7 @@
 		<tr class="ccm-list-record"><td><?= t('No Data Types found') ?></td></tr>
 	<?php } else { ?>
 		<?php $alt = ''; foreach ($dataTypes as $dataType) { ?>
+			<?php if (!$dataType->permissions->canViewDataType()) continue ?>
 			<tr class="ccm-list-record<?= $alt ?>">
 				<td><a href="<?= $dataType->permissionKeyCategory->getToolsURL('display_list') . h('&dtID=' . $dataType->dtID) ?>"
 							 class="btn ccm-button-v2-right"
