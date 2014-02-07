@@ -20,7 +20,7 @@
 							 dialog-height="500"
 							 dialog-width="420"
 							 dialog-append-buttons="true"
-				><?php if ($dataType->permissions->canEditDataTypePermissions()) { ?><?= t('Permissions') ?></a><?= $dataType->dtName ?><?php } ?><?php if ($dataType->permissions->canEditDataType()) { ?><?= $interface->button(t('Edit Metadata'), $this->url('/dashboard/data/administration/edit', $dataType->dtID)) ?><?= $interface->button(t('Edit Attributes'), $this->url('/dashboard/data/administration/attributes', $dataType->dtID)) ?><?php } ?></td>
+				><?php if ($dataType->permissions->canEditDataTypePermissions()) { ?><?= t('Permissions') ?></a><?= $dataType->dtName ?><?php } ?><?php if ($dataType->permissions->canEditDataType()) { ?><?= $interface->button(t('Metadata'), $this->url('/dashboard/data/administration/edit', $dataType->dtID)) ?><?= $interface->button(t('Attributes'), $this->url('/dashboard/data/administration/attributes', $dataType->dtID)) ?><?php } ?></td>
 			</tr>
 		<?php $alt = $alt ? '' : ' ccm-list-record-alt'; } ?>
 	<?php } ?>
