@@ -117,7 +117,7 @@ class DataPackage extends Package {
 				'name' => t('Delete Data'),
 				'description' => t('Delete Data')
 			),
-			'create_datas' => array(
+			'create_data' => array(
 				'name' => t('Create Data'),
 				'description' => t('Create Data')
 			)
