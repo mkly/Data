@@ -6,6 +6,7 @@ class DataType extends Model {
 	protected $datas;
 	protected $permissionKeyCategory;
 	protected $permissions;
+	protected $attributes;
 
 	public function __get($name) {
 		$method = 'get' . ucfirst($name);
@@ -35,6 +36,13 @@ class DataType extends Model {
 
 		$this->permissions = new Permissions($this);
 		return $this->permissions;
+	}
+
+	protected function getAttributes() {
+		if (isset($this->attributes)) return $this->attributes;
+
+		$this->attributes = DataAttributeKey::getListByDataTypeID($this->dtID);
+		return $this->attributes;
 	}
 
 	protected function isAdvancedPermissions() {

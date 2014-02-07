@@ -23,7 +23,6 @@ class DashboardDataAdministrationAttributesController extends DataDashboardBaseC
 			$types[$at->getAttributeTypeID()] = $at->getAttributeTypeName();
 		}
 		$this->set('types', $types);
-		$this->set('attributes', DataAttributeKey::getListByDataTypeID($dataType->dtID));
 
 	}
 
