@@ -10,7 +10,7 @@
 	<div class="ccm-pane-footer">
 		<div class="ccm-buttons">
 			<?= $interface->submit(t('Save')) ?>
-			<?php if ($dataType->permissions->canDeleteDatas()) { ?><?= $interface->button(t('Delete'), $this->url('/dashboard/data/administration/delete', $dataType->dtID)) ?><?php } ?>
+			<?php if ($dataType->permissions->canDeleteDatas()) { ?><?= $interface->button(t('Delete'), $this->url('/dashboard/data/administration/delete', $dataType->dtID)) ?><?php } ?><?= $interface->button(t('Cancel'), $this->url('/dashboard/data/administration', $dataType->dtID)) ?>
 		</div>
 	</div>
 </form>

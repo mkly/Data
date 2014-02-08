@@ -1,5 +1,5 @@
 <?php defined('C5_EXECUTE') or die('Access Denied.') ?>
-<?= $dashboard->getDashboardPaneHeaderWrapper(t('Data Types'), false, false) ?>
+<?= $dashboard->getDashboardPaneHeaderWrapper(t('Data Type Administration'), false, false) ?>
 <?= $interface->button(t('Create'), $this->url('/dashboard/data/administration/create')) ?>
 <div class="clearfix"></div>
 <table class="ccm-results-list">

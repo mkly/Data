@@ -3,9 +3,29 @@ defined('C5_EXECUTE') or die('Access Denied.');
 
 class DashboardDataManagementController extends DataDashboardBaseController {
 
-	public function view() {
-		$DataType = new DataType;
-		$this->set('dataTypes', $DataType->Find('1=1'));
+	public function view($dID = null) {
+		if (!$dID) {
+			$DataType = new DataType;
+			$this->set('dataTypes', $DataType->Find('1=1'));
+			$this->render('data_types');
+		}
+
+		$data = new Data;
+		if (!$data->load('dID=?', array($dID))) {
+			$this->flashError(t('Data Type Not Found'));
+			$DataType = new DataType;
+			$this->set('dataTypes', $DataType->Find('1=1'));
+			$this->render('data_types');
+		}
+
+		if (!$data->getDataType()->permissions->canViewDatas()) {
+			$this->flashError(t('Access Denied'));
+			$DataType = new DataType;
+			$this->set('dataTypes', $DataType->Find('1=1'));
+			$this->render('data_types');
+		}
+
+		$this->set('data', $data);
 	}
 
 	/**

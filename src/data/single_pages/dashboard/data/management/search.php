@@ -20,7 +20,7 @@
 			</tr>
 		<?php $alt = ''; foreach ($datas as $data) { ?>
 			<tr class="ccm-list-record<?= $alt ?>">
-				<td><?= $data->name ? $data->name->getValue('display_sanitized') : $data->dID ?><?php if ($data->getDataType()->permissions->canEditData()) { ?><?= $interface->button(t('Edit'), $this->url('/dashboard/data/management/edit', $dataType->dtID, $data->dID)) ?><?php } ?></td>
+				<td><a href="<?= $this->url('/dashboard/data/management', $data->dID) ?>"><?= $data->name->getValue('display_sanitized') ?></a><?php if ($data->getDataType()->permissions->canEditData()) { ?><?= $interface->button(t('Edit'), $this->url('/dashboard/data/management/edit', $dataType->dtID, $data->dID)) ?><?php } ?></td>
 			</tr>
 		<?php $alt = $alt ? '' : ' ccm-list-record-alt'; } ?>
 		</table>

@@ -119,6 +119,14 @@ class Data extends Model {
 		return $dataType;
 	}
 
+	public function getAttributeValueObjects() {
+		$avos = array();
+		foreach ($this->getDataType()->attributes as $attribute) {
+			$avos[] = $this->getAttributeValueObject($attribute);
+		}
+		return $avos;
+	}
+
 	public function reindex() {
 		$db = Loader::db();
 		$db->Execute('
