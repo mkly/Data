@@ -10,9 +10,21 @@ class DashboardDataAdministrationController extends DataDashboardBaseController 
 		));
 	}
 
-	public function view() {
+	public function view($dtID = null) {
+		if (!$dtID) {
+			$this->redirect($this->path('search'));
+		}
+		$dataType = new DataType;
+		if (!$dataType->Load('dtID=?', array($dtID))) {
+			$this->redirect($this->path('search'));
+		}
+		$this->set('dataType', $dataType);
+	}
+
+	public function search() {
 		$DataType = new DataType;
 		$this->set('dataTypes', $DataType->Find('1=1'));
+		$this->render('search');
 	}
 
 	public function create() {
