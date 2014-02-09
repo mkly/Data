@@ -5,7 +5,7 @@ class DataPackage extends Package {
 
 	protected $pkgHandle = "data";
 	protected $appVersionRequired = "5.6";
-	protected $pkgVersion = "0.1";
+	protected $pkgVersion = "0.1.2";
 
 	public function getPackageName() {
 		return t('Data');
@@ -31,7 +31,13 @@ class DataPackage extends Package {
 			'DataTypePermissionAccess' => array('model', 'permission/access/categories/data_type', 'data'),
 			'DataTypePermissionAccessListItem' => array('model', 'permission/access/list_items/data_type', 'data'),
 			'DataTypePermissionAssignment' => array('model', 'permission/assignments/data_type', 'data'),
-			'DataTypePermissionResponse' => array('model', 'permission/response/data_type', 'data')
+			'DataTypePermissionResponse' => array('model', 'permission/response/data_type', 'data'),
+			'DataHasOneAttributeTypeController' => array('model', 'attribute/types/data_has_one/controller', 'data'),
+			'DataHasOneAttributeTypeSettings' => array('model', 'attribute/types/data_has_one/settings', 'data'),
+			'DataBelongsToAttributeTypeController' => array('model', 'attribute/types/data_belongs_to/controller', 'data'),
+			'DataBelongsToAttributeTypeSettings' => array('model', 'attribute/types/data_belongs_to/settings', 'data'),
+			'DataHasManyAttributeTypeController' => array('model', 'attribute/types/data_has_many/controller', 'data'),
+			'DataHasManyAttributeTypeSettings' => array('model', 'attribute/types/data_has_many/settings', 'data')
 		));
 	}
 
@@ -51,6 +57,17 @@ class DataPackage extends Package {
 		);
 
 		foreach (array(
+			'data_belongs_to' => t('Data Belongs To'),
+			'data_has_one' => t('Data Has One'),
+			'data_has_many' => t('Data Has Many')
+		) as $handle => $name) {
+			AttributeType::add($handle, $name, $pkg);
+		}
+
+		foreach (array(
+			'data_belongs_to',
+			'data_has_one',
+			'data_has_many',
 			'address',
 			'boolean',
 			'date_time',
@@ -66,6 +83,7 @@ class DataPackage extends Package {
 				$akc->associateAttributeKeyType($at);
 			}
 		}
+
 
 		foreach (array(
 			'data',
@@ -147,7 +165,13 @@ class DataPackage extends Package {
 			'DataTypes',
 			'DataAttributeKeys',
 			'DataAttributeValues',
-			'DataSearchIndexAttributes'
+			'DataSearchIndexAttributes',
+			'atDataHasOneAttributeTypeSettings',
+			'atDataHasOne',
+			'atDataHasManyAttributeTypeSettings',
+			'atDataHasMany',
+			'atDataBelongsToAttributeTypeSettings',
+			'atDataBelongsTo'
 		) as $table) {
 			$db->Execute('DROP TABLE IF EXISTS ' . $table );
 		}

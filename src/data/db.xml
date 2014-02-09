@@ -18,7 +18,6 @@
 		<field name="dtID" type="I">
 			<KEY/>
 			<AUTOINCREMENT/>
-			<NOTNULL/>
 			<UNSIGNED/>
 		</field>
 		<field name="dtHandle" type="C" size="255">
@@ -39,7 +38,6 @@
 		<field name="akID" type="I">
 			<KEY/>
 			<AUTOINCREMENT/>
-			<NOTNULL/>
 			<UNSIGNED/>
 		</field>
 		<field name="dtID" type="I">
@@ -83,6 +81,84 @@
 		</field>
 		<field name="pkID" type="I" size="11">
 			<KEY/>
+			<NOTNULL/>
+			<UNSIGNED/>
+		</field>
+	</table>
+	<table name="atDataHasOneAttributeTypeSettings">
+		<field name="aID" type="I" size="10">
+			<KEY/>
+			<UNSIGNED/>
+			<AUTOINCREMENT/>
+		</field>
+		<field name="dtID" type="I" size="10">
+			<NOTNULL/>
+			<UNSIGNED/>
+		</field>
+		<field name="akID" type="I" size="10">
+			<NOTNULL/>
+			<UNSIGNED/>
+		</field>
+	</table>
+	<table name="atDataHasOne">
+		<field name="avID" type="I" size="10">
+			<KEY/>
+			<NOTNULL/>
+			<UNSIGNED/>
+		</field>
+		<field name="dID" type="I" size="10">
+			<NOTNULL/>
+			<UNSIGNED/>
+		</field>
+	</table>
+	<table name="atDataBelongsToAttributeTypeSettings">
+		<field name="aID" type="I" size="10">
+			<KEY/>
+			<UNSIGNED/>
+			<AUTOINCREMENT/>
+		</field>
+		<field name="dtID" type="I" size="10">
+			<NOTNULL/>
+			<UNSIGNED/>
+		</field>
+		<field name="akID" type="I" size="10">
+			<NOTNULL/>
+			<UNSIGNED/>
+		</field>
+	</table>
+	<table name="atDataBelongsTo">
+		<field name="avID" type="I" size="10">
+			<KEY/>
+			<NOTNULL/>
+			<UNSIGNED/>
+		</field>
+		<field name="dID" type="I" size="10">
+			<NOTNULL/>
+			<UNSIGNED/>
+		</field>
+	</table>
+	<table name="atDataHasManyAttributeTypeSettings">
+		<field name="aID" type="I" size="10">
+			<KEY/>
+			<UNSIGNED/>
+			<AUTOINCREMENT/>
+		</field>
+		<field name="dtID" type="I" size="10">
+			<NOTNULL/>
+			<UNSIGNED/>
+		</field>
+		<field name="akID" type="I" size="10">
+			<NOTNULL/>
+			<UNSIGNED/>
+		</field>
+	</table>
+	<table name="atDataHasMany">
+		<field name="avID" type="I" size="10">
+			<KEY/>
+			<UNSIGNED/>
+			<AUTOINCREMENT/>
+		</field>
+		<field name="dID" type="I" size="10">
 			<NOTNULL/>
 			<UNSIGNED/>
 		</field>

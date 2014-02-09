@@ -9,10 +9,6 @@
 	</form>
 </div>
 <div class="ccm-pane-body">
-	<?php if ($dataType->permissions->canCreateData()) { ?>
-		<?= $interface->button(t('Create'), $this->url('/dashboard/data/management/create', $dataType->dtID)) ?>
-	<?php } ?>
-	<div class="clearfix"></div>
 	<?php if ($datas) { ?>
 		<table class="ccm-results-list">
 			<tr class="ccm-results-list-header">
@@ -28,5 +24,10 @@
 	<?php } ?>
 </div>
 <div class="ccm-pane-footer">
+	<div class="ccm-buttons">
+		<?php if ($dataType->permissions->canCreateData()) { ?>
+			<?= $interface->button(t('Create'), $this->url('/dashboard/data/management/create', $dataType->dtID)) ?>
+		<?php } ?>
+	</div>
 </div>
 <?= $dashboard->getDashboardPaneFooterWrapper(false) ?>
