@@ -15,13 +15,46 @@ class DataHasOneAttributeTypeController extends AttributeTypeController {
 		return $hasOne->getData();
 	}
 
+	/**
+	 * @return string
+	 */
+	public function getDisplayValue() {
+		return 'todo';
+		//return $this->getValue()->name->getValue('display');
+	}
+
+	/**
+	 * @param int $value
+	 */
+	public function saveValue($data) {
+		$hasOne = new DataHasOneAttributeTypeValue;
+		// todo adodb active record being wierd?
+		if (!$hasOne->Load('avID=?', array($this->getAttributeValueID()))) {
+			$hasOne->avID = $this->getAttributeValueID();
+		}
+		$hasOne->dID = $data->dID;
+		$hasOne->Save();
+	}
+
+	/**
+	 * @param array $data
+	 */
+	public function saveForm($args) {
+		$data = new Data;
+		if (!$data->Load('dID=?', array($args['dID']))) {
+			$data->dtID = $args['dtID'];
+			$data->Insert();
+		}
+		$this->saveValue($data);
+	}
+
 	public function deleteValue() {
 		$hasOne = new DataHasOneAttributeTypeValue;
 		$hasOne->Delete();
 	}
 
 	/**
-	 * @return DataHasOneAssociation
+	 * @return DataHasOneAttributeTypeSettings
 	 */
 	public function getSettings() {
 		if (isset($this->settings)) return $this->settings;
@@ -39,7 +72,12 @@ class DataHasOneAttributeTypeController extends AttributeTypeController {
 	}
 
 	public function form() {
-		$this->set('ah', Loader::helper('form/attribute'));
+		$this->set('form', Loader::helper('form'));
+		$ah = Loader::helper('form/attribute');
+		if ($data = $this->getValue()) {
+			$ah->setAttributeObject($data);
+		}
+		$this->set('ah', $ah);
 		$dataType = new DataType;
 		$dataType->Load('dtID=?', array($this->getSettings()->dtID));
 		$this->set('attributes', DataAttributeKey::getListByDataTypeID($dataType->dtID));
