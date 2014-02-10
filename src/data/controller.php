@@ -34,10 +34,13 @@ class DataPackage extends Package {
 			'DataTypePermissionResponse' => array('model', 'permission/response/data_type', 'data'),
 			'DataHasOneAttributeTypeController' => array('model', 'attribute/types/data_has_one/controller', 'data'),
 			'DataHasOneAttributeTypeSettings' => array('model', 'attribute/types/data_has_one/settings', 'data'),
+			'DataHasOneAttributeTypeValue' => array('model', 'attribute/types/data_has_one/value', 'data'),
 			'DataBelongsToAttributeTypeController' => array('model', 'attribute/types/data_belongs_to/controller', 'data'),
 			'DataBelongsToAttributeTypeSettings' => array('model', 'attribute/types/data_belongs_to/settings', 'data'),
+			'DataBelongsToAttributeTypeValue' => array('model', 'attribute/types/data_belongs_to/value', 'data'),
 			'DataHasManyAttributeTypeController' => array('model', 'attribute/types/data_has_many/controller', 'data'),
-			'DataHasManyAttributeTypeSettings' => array('model', 'attribute/types/data_has_many/settings', 'data')
+			'DataHasManyAttributeTypeSettings' => array('model', 'attribute/types/data_has_many/settings', 'data'),
+			'DataHasManyAttributeTypeValue' => array('model', 'attribute/types/data_has_many/value', 'data')
 		));
 	}
 

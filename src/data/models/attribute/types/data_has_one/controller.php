@@ -7,12 +7,12 @@ class DataHasOneAttributeTypeController extends AttributeTypeController {
 	protected $settings;
 
 	/**
-	 * @return DataHasOneAttributeTypeValue
+	 * @return Data
 	 */
 	public function getValue() {
 		$hasOne = new DataHasOneAttributeTypeValue;
 		$hasOne->Load('avID=?', array($this->getAttributeValueID()));
-		return $hasOne;
+		return $hasOne->getData();
 	}
 
 	public function deleteValue() {
@@ -39,6 +39,11 @@ class DataHasOneAttributeTypeController extends AttributeTypeController {
 	}
 
 	public function form() {
+		$this->set('ah', Loader::helper('form/attribute'));
+		$dataType = new DataType;
+		$dataType->Load('dtID=?', array($this->getSettings()->dtID));
+		$this->set('attributes', DataAttributeKey::getListByDataTypeID($dataType->dtID));
+		$this->set('dataType', $dataType);
 	}
 
 	/**
