@@ -58,7 +58,7 @@ class Data extends Model {
 			$av->setAttributeKey($ak);
 		}
 
-		if ($createIfNotFound && (!$av || $db->GetOne('
+		if ($createIfNotFound && (!$av || !$db->GetOne('
 			SELECT count(avID)
 			FROM   DataAttributeValues
 			WHERE  avID = ?

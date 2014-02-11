@@ -87,6 +87,7 @@ class DataHasOneAttributeTypeController extends AttributeTypeController {
 		$dataType->Load('dtID=?', array($this->getSettings()->dtID));
 		$this->set('attributes', DataAttributeKey::getListByDataTypeID($dataType->dtID));
 		$this->set('dataType', $dataType);
+		$this->set('data', $data);
 	}
 
 	/**
