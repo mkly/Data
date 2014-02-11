@@ -12,7 +12,7 @@
 		<?php foreach ($data->getAttributeValueObjects() as $avo) { ?>
 			<tr>
 				<td><?= $avo->getAttributeKey()->getAttributeKeyName() ?></td>
-				<td><?= $avo->getValue('display') ?></td>
+				<td><?= $avo->getValue('display_sanitized') ?></td>
 			</tr>
 		<?php } ?>
 	</table>

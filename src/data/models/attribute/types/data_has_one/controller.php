@@ -19,7 +19,35 @@ class DataHasOneAttributeTypeController extends AttributeTypeController {
 	 * @return string
 	 */
 	public function getDisplayValue() {
-		return $this->getValue()->name->getValue('display');
+		$displays = array();
+		foreach ($this->getValue()->getAttributeValueObjects() as $avo) {
+			if (method_exists($avo->getAttributeTypeObject()->getController(), 'getDisplayValue')) {
+				$displays[] = $avo->getValue('display');
+				continue;
+			}
+			$displays[] = $avo->getValue();
+		}
+		return implode("\n", $displays);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getDisplaySanitizedValue() {
+		$displays = array();
+		foreach ($this->getValue()->getAttributeValueObjects() as $avo) {
+			$controller = $avo->getAttributeTypeObject()->getController();
+			if (method_exists($controller, 'getDisplaySanitizedValue')) {
+				$displays[] = nl2br($avo->getValue('display_sanitized'));
+				continue;
+			}
+			if (method_exists($controller, 'getDisplayValue')) {
+				$displays[] = nl2br($avo->getValue('display'));
+				continue;
+			}
+			$displays[] = nl2br(h($avo->getValue()));
+		}
+		return implode("<br/>", $displays);
 	}
 
 	/**
