@@ -19,8 +19,7 @@ class DataHasOneAttributeTypeController extends AttributeTypeController {
 	 * @return string
 	 */
 	public function getDisplayValue() {
-		return 'todo';
-		//return $this->getValue()->name->getValue('display');
+		return $this->getValue()->name->getValue('display');
 	}
 
 	/**
@@ -44,6 +43,12 @@ class DataHasOneAttributeTypeController extends AttributeTypeController {
 		if (!$data->Load('dID=?', array($args['dID']))) {
 			$data->dtID = $args['dtID'];
 			$data->Insert();
+		}
+		$dataType = new DataType;
+		$dataType->Load('dtID=?', array($args['dtID']));
+		foreach ($dataType->attributes as $dak) {
+			$dak->saveAttributeForm($data);
+			unset($_POST['akID'][$dak->getAttributeKeyID()]);
 		}
 		$this->saveValue($data);
 	}
