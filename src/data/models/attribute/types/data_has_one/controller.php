@@ -132,8 +132,8 @@ class DataHasOneAttributeTypeController extends AttributeTypeController {
 	 * @param AttributeKey $ak
 	 */
 	public function duplicateKey($ak) {
-		$association = $this->getAssociation();
-		$association->aID = null;
+		$association = $this->getSettings();
+		$association->akID = $ak->getAttributeKeyID();
 		$association->Insert();
 	}
 
