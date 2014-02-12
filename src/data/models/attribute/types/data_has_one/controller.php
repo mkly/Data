@@ -87,7 +87,7 @@ class DataHasOneAttributeTypeController extends AttributeTypeController {
 	}
 
 	/**
-	 * @return DataHasOneAttributeTypeSettings
+	 * @return DataHasOneAttributeTypeSetting
 	 */
 	public function getSettings() {
 		if (isset($this->settings)) return $this->settings;
