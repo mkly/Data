@@ -137,30 +137,4 @@
 			<UNSIGNED/>
 		</field>
 	</table>
-	<table name="atDataHasManyAttributeTypeSettings">
-		<field name="aID" type="I" size="10">
-			<KEY/>
-			<UNSIGNED/>
-			<AUTOINCREMENT/>
-		</field>
-		<field name="dtID" type="I" size="10">
-			<NOTNULL/>
-			<UNSIGNED/>
-		</field>
-		<field name="akID" type="I" size="10">
-			<NOTNULL/>
-			<UNSIGNED/>
-		</field>
-	</table>
-	<table name="atDataHasMany">
-		<field name="avID" type="I" size="10">
-			<KEY/>
-			<UNSIGNED/>
-			<AUTOINCREMENT/>
-		</field>
-		<field name="dID" type="I" size="10">
-			<NOTNULL/>
-			<UNSIGNED/>
-		</field>
-	</table>
 </schema>
