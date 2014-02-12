@@ -129,6 +129,7 @@ class DataHasOneAttributeTypeController extends AttributeTypeController {
 	}
 
 	/**
+	 * @todo
 	 * @param AttributeKey $ak
 	 */
 	public function duplicateKey($ak) {
