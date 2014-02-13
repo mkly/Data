@@ -32,12 +32,12 @@ class DataPackage extends Package {
 			'DataTypePermissionAccessListItem' => array('model', 'permission/access/list_items/data_type', 'data'),
 			'DataTypePermissionAssignment' => array('model', 'permission/assignments/data_type', 'data'),
 			'DataTypePermissionResponse' => array('model', 'permission/response/data_type', 'data'),
-			'DataSimpleAssociationAttributeTypeController' => array('model', 'attribute/types/data_has_one/controller', 'data'),
-			'DataSimpleAssociationAttributeTypeSettings' => array('model', 'attribute/types/data_has_one/settings', 'data'),
-			'DataSimpleAssociationAttributeTypeValue' => array('model', 'attribute/types/data_has_one/value', 'data'),
-			'DataSingleChildAssociationAttributeTypeController' => array('model', 'attribute/types/single_child_association/controller', 'data'),
-			'DataSingleChildAssociationAttributeTypeSettings' => array('model', 'attribute/types/single_child_association/settings', 'data'),
-			'DataSingleChildAssociationAttributeTypeValue' => array('model', 'attribute/types/single_child_association/value', 'data'),
+			'DataSimpleAssociationAttributeTypeController' => array('model', 'attribute/types/data_simple_association/controller', 'data'),
+			'DataSimpleAssociationAttributeTypeSettings' => array('model', 'attribute/types/data_simple_association/settings', 'data'),
+			'DataSimpleAssociationAttributeTypeValue' => array('model', 'attribute/types/data_simple_association/value', 'data'),
+			'DataSingleChildAssociationAttributeTypeController' => array('model', 'attribute/types/data_single_child_association/controller', 'data'),
+			'DataSingleChildAssociationAttributeTypeSettings' => array('model', 'attribute/types/data_single_child_association/settings', 'data'),
+			'DataSingleChildAssociationAttributeTypeValue' => array('model', 'attribute/types/data_single_child_association/value', 'data'),
 		));
 	}
 
