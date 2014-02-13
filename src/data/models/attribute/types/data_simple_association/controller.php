@@ -1,7 +1,7 @@
 <?php
 defined('C5_EXECUTE') or die('Access Denied.');
 
-class DataBelongsToAttributeTypeController extends AttributeTypeController {
+class DataSimpleAssociationAttributeTypeController extends AttributeTypeController {
 
 	protected $searchIndexFieldDefinition = 'I NOT NULL';
 	protected $settings;
@@ -10,7 +10,7 @@ class DataBelongsToAttributeTypeController extends AttributeTypeController {
 	 * return Data
 	 */
 	public function getValue() {
-		$belongsTo = new DataBelongsToAttributeTypeValue;
+		$belongsTo = new DataSimpleAssociationAttributeTypeValue;
 		$belongsTo->Load('avID=?', array($this->getAttributeValueID()));
 		return $belongsTo->getData();
 	}
@@ -54,7 +54,7 @@ class DataBelongsToAttributeTypeController extends AttributeTypeController {
 	 * @param int $value
 	 */
 	public function saveValue($value) {
-		$belongsTo = new DataBelongsToAttributeTypeValue;
+		$belongsTo = new DataSimpleAssociationAttributeTypeValue;
 		if (!$belongsTo->Load('avID=?', array($this->getAttributeValueID()))) {
 			$belongsTo->avID = $this->getAttributeValueID();
 		}
@@ -70,17 +70,17 @@ class DataBelongsToAttributeTypeController extends AttributeTypeController {
 	}
 
 	public function deleteValue() {
-		$belongsTo = new DataBelongsToAttributeTypeValue;
+		$belongsTo = new DataSimpleAssociationAttributeTypeValue;
 		$belongsTo->Delete();
 	}
 
 	/**
-	 * @return DataBelongsToAttributeTypeSettings
+	 * @return DataSimpleAssociationAttributeTypeSettings
 	 */
 	public function getSettings() {
 		if (isset($this->settings)) return $this->settings;
 
-		$this->settings = new DataBelongsToAttributeTypeSettings;
+		$this->settings = new DataSimpleAssociationAttributeTypeSettings;
 		if ($this->getAttributeKey()) {
 			$this->settings->Load('akID=?', $this->getAttributeKey()->getAttributeKeyID());
 		}
@@ -116,9 +116,9 @@ class DataBelongsToAttributeTypeController extends AttributeTypeController {
 	 * @param AttributeKey $ak
 	 */
 	public function deleteKey() {
-		$DataBelongsToAttributeTypeValue = new DataBelongsToAttributeTypeValue;
+		$DataSimpleAssociationAttributeTypeValue = new DataSimpleAssociationAttributeTypeValue;
 		foreach (
-			$DataBelongsToAttributeTypeValue->Find('avID=?', array(
+			$DataSimpleAssociationAttributeTypeValue->Find('avID=?', array(
 				$this->getAttributeKey()->getAttributeKeyID()
 			)
 		) as $avo) {

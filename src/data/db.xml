@@ -111,7 +111,7 @@
 			<UNSIGNED/>
 		</field>
 	</table>
-	<table name="atDataBelongsToAttributeTypeSettings">
+	<table name="atDataSimpleAssociationAttributeTypeSettings">
 		<field name="aID" type="I" size="10">
 			<KEY/>
 			<UNSIGNED/>
@@ -126,7 +126,7 @@
 			<UNSIGNED/>
 		</field>
 	</table>
-	<table name="atDataBelongsTo">
+	<table name="atDataSimpleAssociation">
 		<field name="avID" type="I" size="10">
 			<KEY/>
 			<NOTNULL/>

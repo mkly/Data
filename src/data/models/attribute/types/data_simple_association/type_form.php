@@ -1,6 +1,6 @@
 <?php defined('C5_EXECUTE') or die('Access Denied.') ?>
 <fieldset>
-<legend><?= t('Belongs To Association') ?></legend>
+<legend><?= t('Simple Association') ?></legend>
 
 <div class="clearfix">
 	<label><?= t('Data Type') ?></label>

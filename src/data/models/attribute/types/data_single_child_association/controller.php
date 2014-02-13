@@ -1,7 +1,7 @@
 <?php
 defined('C5_EXECUTE') or die('Access Denied.');
 
-class DataHasOneAttributeTypeController extends AttributeTypeController {
+class DataSingleChildAssociationAttributeTypeController extends AttributeTypeController {
 
 	protected $searchIndexFieldDefinition = 'I NOT NULL';
 	protected $settings;
@@ -10,9 +10,9 @@ class DataHasOneAttributeTypeController extends AttributeTypeController {
 	 * @return Data
 	 */
 	public function getValue() {
-		$hasOne = new DataHasOneAttributeTypeValue;
-		$hasOne->Load('avID=?', array($this->getAttributeValueID()));
-		return $hasOne->getData();
+		$assoc = new DataSingleChildAssociationAttributeTypeValue;
+		$assoc->Load('avID=?', array($this->getAttributeValueID()));
+		return $assoc->getData();
 	}
 
 	/**
@@ -54,13 +54,13 @@ class DataHasOneAttributeTypeController extends AttributeTypeController {
 	 * @param int $value
 	 */
 	public function saveValue($data) {
-		$hasOne = new DataHasOneAttributeTypeValue;
+		$assoc = new DataSingleChildAssociationAttributeTypeValue;
 		// todo adodb active record being wierd?
-		if (!$hasOne->Load('avID=?', array($this->getAttributeValueID()))) {
-			$hasOne->avID = $this->getAttributeValueID();
+		if (!$assoc->Load('avID=?', array($this->getAttributeValueID()))) {
+			$assoc->avID = $this->getAttributeValueID();
 		}
-		$hasOne->dID = $data->dID;
-		$hasOne->Save();
+		$assoc->dID = $data->dID;
+		$assoc->Save();
 	}
 
 	/**
@@ -82,17 +82,17 @@ class DataHasOneAttributeTypeController extends AttributeTypeController {
 	}
 
 	public function deleteValue() {
-		$hasOne = new DataHasOneAttributeTypeValue;
-		$hasOne->Delete();
+		$assoc = new DataSingleChildAssociationAttributeTypeValue;
+		$assoc->Delete();
 	}
 
 	/**
-	 * @return DataHasOneAttributeTypeSetting
+	 * @return DataSingleChildAssociationAttributeTypeSettings
 	 */
 	public function getSettings() {
 		if (isset($this->settings)) return $this->settings;
 
-		$this->settings = new DataHasOneAttributeTypeSettings;
+		$this->settings = new DataSingleChildAssociationAttributeTypeSettings;
 		if ($this->getAttributeKey()) {
 			$this->settings->Load('akID=?', $this->getAttributeKey()->getAttributeKeyID());
 		}
@@ -123,7 +123,7 @@ class DataHasOneAttributeTypeController extends AttributeTypeController {
 	 */
 	public function saveKey($data) {
 		$this->settings = $this->getSettings();
-		$this->settings->dtID = $data['hasOne_dtID'];
+		$this->settings->dtID = $data['assoc_dtID'];
 		$this->settings->akID = $this->getAttributeKey()->getAttributeKeyID();
 		$this->settings->Save();
 	}
@@ -139,9 +139,9 @@ class DataHasOneAttributeTypeController extends AttributeTypeController {
 	}
 
 	public function deleteKey() {
-		$DataHasOneAttributeTypeValue = new DataHasOneAttributeTypeValue;
+		$DataSingleChildAssociationAttributeTypeValue = new DataSingleChildAssociationAttributeTypeValue;
 		foreach (
-			$DataHasOneAttributeTypeValue->Find('avID=?', array(
+			$DataSingleChildAssociationAttributeTypeValue->Find('avID=?', array(
 				$this->getAttributeKey()->getAttributeKeyID()
 			)
 		) as $value) {

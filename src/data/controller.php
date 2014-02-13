@@ -32,15 +32,12 @@ class DataPackage extends Package {
 			'DataTypePermissionAccessListItem' => array('model', 'permission/access/list_items/data_type', 'data'),
 			'DataTypePermissionAssignment' => array('model', 'permission/assignments/data_type', 'data'),
 			'DataTypePermissionResponse' => array('model', 'permission/response/data_type', 'data'),
-			'DataHasOneAttributeTypeController' => array('model', 'attribute/types/data_has_one/controller', 'data'),
-			'DataHasOneAttributeTypeSettings' => array('model', 'attribute/types/data_has_one/settings', 'data'),
-			'DataHasOneAttributeTypeValue' => array('model', 'attribute/types/data_has_one/value', 'data'),
-			'DataBelongsToAttributeTypeController' => array('model', 'attribute/types/data_belongs_to/controller', 'data'),
-			'DataBelongsToAttributeTypeSettings' => array('model', 'attribute/types/data_belongs_to/settings', 'data'),
-			'DataBelongsToAttributeTypeValue' => array('model', 'attribute/types/data_belongs_to/value', 'data'),
-			'DataHasManyAttributeTypeController' => array('model', 'attribute/types/data_has_many/controller', 'data'),
-			'DataHasManyAttributeTypeSettings' => array('model', 'attribute/types/data_has_many/settings', 'data'),
-			'DataHasManyAttributeTypeValue' => array('model', 'attribute/types/data_has_many/value', 'data')
+			'DataSimpleAssociationAttributeTypeController' => array('model', 'attribute/types/data_has_one/controller', 'data'),
+			'DataSimpleAssociationAttributeTypeSettings' => array('model', 'attribute/types/data_has_one/settings', 'data'),
+			'DataSimpleAssociationAttributeTypeValue' => array('model', 'attribute/types/data_has_one/value', 'data'),
+			'DataSingleChildAssociationAttributeTypeController' => array('model', 'attribute/types/single_child_association/controller', 'data'),
+			'DataSingleChildAssociationAttributeTypeSettings' => array('model', 'attribute/types/single_child_association/settings', 'data'),
+			'DataSingleChildAssociationAttributeTypeValue' => array('model', 'attribute/types/single_child_association/value', 'data'),
 		));
 	}
 
@@ -60,17 +57,15 @@ class DataPackage extends Package {
 		);
 
 		foreach (array(
-			'data_belongs_to' => t('Data Belongs To'),
-			'data_has_one' => t('Data Has One'),
-			'data_has_many' => t('Data Has Many')
+			'data_simple_association' => t('Data Simple Association'),
+			'data_single_child_association' => t('Data Single Child Association'),
 		) as $handle => $name) {
 			AttributeType::add($handle, $name, $pkg);
 		}
 
 		foreach (array(
-			'data_belongs_to',
-			'data_has_one',
-			'data_has_many',
+			'data_simple_association',
+			'data_single_child_association',
 			'address',
 			'boolean',
 			'date_time',

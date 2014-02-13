@@ -1,8 +1,8 @@
 <?php
 defined('C5_EXECUTE') or die('Access Denied.');
 
-class DataBelongsToAttributeTypeValue extends Model {
-	public $_table = 'atDataBelongsTo';
+class DataSimpleAssociationAttributeTypeValue extends Model {
+	public $_table = 'atDataSimpleAssociation';
 
 	public function getData() {
 		$data = new Data;
