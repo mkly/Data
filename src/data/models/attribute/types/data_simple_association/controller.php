@@ -88,8 +88,9 @@ class DataSimpleAssociationAttributeTypeController extends AttributeTypeControll
 	}
 
 	public function type_form() {
+		$this->set('form', Loader::helper('form'));
 		$this->set('dataTypeSelector', Loader::helper('form/data_type_selector', 'data'));
-		$this->set('dtID', $this->getSettings()->dtID ? $this->getSettings()->dtID : 0);
+		$this->set('settings', $this->getSettings());
 	}
 
 	/**
@@ -97,7 +98,8 @@ class DataSimpleAssociationAttributeTypeController extends AttributeTypeControll
 	 */
 	public function saveKey($data) {
 		$this->settings = $this->getSettings();
-		$this->settings->dtID = $data['belongsTo_dtID'];
+		$this->settings->dtID = $data['assoc_dtID'];
+		$this->settings->multipleAssociations = isset($data['multipleAssociations']) ? 1 : 0;
 		$this->settings->akID = $this->getAttributeKey()->getAttributeKeyID();
 		$this->settings->Save();
 	}
@@ -132,5 +134,6 @@ class DataSimpleAssociationAttributeTypeController extends AttributeTypeControll
 		$dataType->Load('dtID=?', array($this->getSettings()->dtID));
 		$this->set('dataType', $dataType);
 		$this->set('dataSelector', Loader::helper('form/data_selector', 'data'));
+		$this->set('settings', $this->settings);
 	}
 }

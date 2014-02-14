@@ -16,4 +16,20 @@ class FormDataSelectorHelper {
 		}
 		return Loader::helper('form')->select($fieldName, $dataSelects, $dID);
 	}
+
+	/**
+	 * @param string $fieldName
+	 * @param array $dtID
+	 * @return string
+	 */
+	public function multiSelect($fieldName, array $dIDs, $dataType) {
+		$form = Loader::helper('form');
+		$DataList = new DataList($dataType);
+		$html = '<ul class="inputs-list">';
+		foreach ($DataList->get() as $data) {
+			$html .= '<li>' . $form->checkbox($fieldName . '[]', $data->dID, in_array($data->dID, $dIDs) ? $data->dID : 0) . ' ' . $data->name->getValue() . '</li>';
+		}
+		$html .= '</ul>';
+		return $html;
+	}
 }

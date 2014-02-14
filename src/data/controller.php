@@ -5,7 +5,7 @@ class DataPackage extends Package {
 
 	protected $pkgHandle = "data";
 	protected $appVersionRequired = "5.6";
-	protected $pkgVersion = "0.1.2";
+	protected $pkgVersion = "0.1.3";
 
 	public function getPackageName() {
 		return t('Data');

@@ -125,6 +125,10 @@
 			<NOTNULL/>
 			<UNSIGNED/>
 		</field>
+		<field name="multipleAssociations" type="I1">
+			<NOTNULL/>
+			<default value="0"></default>
+		</field>
 	</table>
 	<table name="atDataSimpleAssociation">
 		<field name="avID" type="I" size="10">
