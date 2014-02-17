@@ -7,20 +7,66 @@ class DataSimpleAssociationAttributeTypeController extends AttributeTypeControll
 	protected $settings;
 
 	/**
-	 * return Data
+	 * return array|Data
 	 */
 	public function getValue() {
-		$belongsTo = new DataSimpleAssociationAttributeTypeValue;
-		$belongsTo->Load('avID=?', array($this->getAttributeValueID()));
-		return $belongsTo->getData();
+		if ($this->getSettings()->multipleAssociations) {
+			return $this->getMultipleValue();
+		}
+		return $this->getSingleValue();
+
+	}
+
+	protected function getMultipleValue() {
+		$Assoc = new DataSimpleAssociationAttributeTypeValue;
+		$datas = array();
+		foreach ($Assoc->Find('avID=?', array($this->getAttributeValueID())) as $value) {
+			$datas[] = $value->getData();
+		}
+		return $datas;
+	}
+
+	/**
+	 * @return Data
+	 */
+	protected function getSingleValue() {
+		$assoc = new DataSimpleAssociationAttributeTypeValue;
+		$assoc->Load('avID=?', array($this->getAttributeValueID()));
+		return $assoc->getData();
 	}
 
 	/**
 	 * @return string
 	 */
 	public function getDisplayValue() {
+		if ($this->getSettings()->multipleAssociations) {
+			return $this->getMultipleDisplayValue();
+		}
+		return $this->getSingleDisplayValue();
+	}
+
+	/**
+	 * @return string
+	 */
+	protected function getDisplayMultipleValue() {
 		$displays = array();
-		foreach ($this->getData()->getAttributeValueObjects() as $avo) {
+		foreach ($this->getValue() as $data) {
+			foreach ($data->getAttributeValueObjects() as $avo) {
+				if (method_exists($avo->getAttributeTypeObject()->getController(), 'getDisplayValue')) {
+					$displays[] = $avo->getValue('display');
+				}
+				$displays[] = $avo->getValue();
+			}
+		}
+		return implode("\n", $displays);
+	}
+
+	/**
+	 * @return string
+	 */
+	protected function getDisplaySingleValue() {
+		$displays = array();
+		foreach ($this->getValue()->getAttributeValueObjects() as $avo) {
 			if (method_exists($avo->getAttributeTypeObject()->getController(), 'getDisplayValue')) {
 				$displays[] = $avo->getValue('display');
 				continue;
@@ -34,6 +80,37 @@ class DataSimpleAssociationAttributeTypeController extends AttributeTypeControll
 	 * @return string
 	 */
 	public function getDisplaySanitizedValue() {
+		if ($this->getSettings()->multipleAssociations) {
+			return $this->getDisplayMultipleSanitizedValue();
+		}
+		return $this->getDisplaySingleSanitizedValue();
+	}
+
+	/**
+	 * @return string
+	 */
+	protected function getDisplayMultipleSanitizedValue() {
+		$displays = array();
+		foreach ($this->getValue() as $data) {
+			foreach ($data->getAttributeValueObjects() as $avo) {
+				$controller = $avo->getAttributeTypeObject()->getController();
+				if (method_exists($controller, 'getDisplaySanitizedValue')) {
+					$displays[] = nl2br($avo->getValue('display_sanitized'));
+					continue;
+				}
+				if (method_exists($controller, 'getDisplayValue')) {
+					$displays[] = nl2br($avo->getValue('display'));
+					continue;
+				}
+			}
+		}
+		return implode('<br/>', $displays);
+	}
+
+	/**
+	 * @return string
+	 */
+	protected function getDisplaySingleSanitizedValue() {
 		$displays = array();
 		foreach ($this->getValue()->getAttributeValueObjects() as $avo) {
 			$controller = $avo->getAttributeTypeObject()->getController();
@@ -47,7 +124,7 @@ class DataSimpleAssociationAttributeTypeController extends AttributeTypeControll
 			}
 			$displays[] = nl2br(h($avo->getValue()));
 		}
-		return implode("<br/>", $displays);
+		return implode('<br/>', $displays);
 	}
 
 	/**
