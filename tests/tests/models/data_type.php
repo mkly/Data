@@ -40,7 +40,8 @@ class DataTypeTest extends DataDatabaseTestCase {
 	}
 
 	public function testExportDataType() {
-		$xml = new SimpleXMLElement('<test/>');
+		$xml = new SimpleXMLElement('<concrete5-cif/>');
+		$xml->addAttribute('version', '1.0');
 		$dataType = new DataType;
 		$dataType->dtName = 'Test Name';
 		$dataType->dtHandle = 'test_handle';
