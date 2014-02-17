@@ -71,6 +71,13 @@ class DataType extends Model {
 		return $dataType;
 	}
 
+	public function export($xml) {
+		$node = $xml->addChild('datatype');
+		$node->addAttribute('dtHandle', $this->dtHandle);
+		$node->addAttribute('dtName', $this->dtName);
+		return $node;
+	}
+
 	public function validate() {
 		$e = Loader::helper('validation/error');
 

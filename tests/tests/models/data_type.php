@@ -39,4 +39,14 @@ class DataTypeTest extends DataDatabaseTestCase {
 		$DataType->import($xml);
 	}
 
+	public function testExportDataType() {
+		$xml = new SimpleXMLElement('<test/>');
+		$dataType = new DataType;
+		$dataType->dtName = 'Test Name';
+		$dataType->dtHandle = 'test_handle';
+		$exportedXML = $dataType->export($xml);
+		$this->assertInstanceOf('SimpleXMLElement', $exportedXML);
+		$this->assertEquals('Test Name', (string) $xml->children()->datatype->attributes()->dtName);
+	}
+
 }
