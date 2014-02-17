@@ -33,7 +33,7 @@
 	   dialog-height="500"
 	   dialog-width="420"
 	   dialog-append-buttons="true"
-	><?= t('Permissions') ?></a><?php } ?><?php if ($dataType->permissions->canEditDataType()) { ?><?= $interface->button(t('Metadata'), $this->url('/dashboard/data/administration/edit', $dataType->dtID)) ?><?= $interface->button(t('Attributes'), $this->url('/dashboard/data/administration/attributes', $dataType->dtID)) ?><?php } ?><h3 style="float: right; margin: 0;"><?= t('Edit') ?>:</h3>
+	><?= t('Permissions') ?></a><?php } ?><?php if ($dataType->permissions->canEditDataType()) { ?><?= $interface->button(t('Metadata'), $this->url('/dashboard/data/administration/edit', $dataType->dtID)) ?><?= $interface->button(t('Attributes'), $this->url('/dashboard/data/administration/attributes', $dataType->dtID)) ?><?php } ?><h3 style="float: right; margin: 0;"><?= t('Edit') ?>:</h3><?= $interface->button(t('Export'), $this->url('/dashboard/data/administration/export', $dataType->dtID), 'left') ?>
 </div>
 <script>
 +function($) {

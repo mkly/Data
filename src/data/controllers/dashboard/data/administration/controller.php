@@ -10,6 +10,10 @@ class DashboardDataAdministrationController extends DataDashboardBaseController 
 		));
 	}
 
+	/**
+	 * @todo view permissions
+	 * @param int $dtID
+	 */
 	public function view($dtID = null) {
 		if (!$dtID) {
 			$this->redirect($this->path('search'));
@@ -21,6 +25,9 @@ class DashboardDataAdministrationController extends DataDashboardBaseController 
 		$this->set('dataType', $dataType);
 	}
 
+	/**
+	 * @todo view permissions
+	 */
 	public function search() {
 		$DataType = new DataType;
 		$this->set('dataTypes', $DataType->Find('1=1'));
@@ -126,6 +133,25 @@ class DashboardDataAdministrationController extends DataDashboardBaseController 
 
 		$this->set('dataType', $dataType);
 		$this->render('delete');
+	}
+
+	/**
+	 * @todo export permissions
+	 * @param int $dtID
+	 */
+	public function export($dtID) {
+		$dataType = new DataType;
+		if (!$dataType->Load('dtID=?', array($dtID))) {
+			$this->flashError(t('Data Type Not Found'));
+			$this->redirect($this->path());
+		}
+
+		$xml = new SimpleXMLElement('<concrete5-cif/>');
+		$xml->addAttribute('version', '1.0');
+		$dataType->export($xml);
+		header('Content-Type: text/xml');
+		echo $xml->asXML();
+		exit;
 	}
 
 }
