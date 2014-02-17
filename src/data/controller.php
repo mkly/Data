@@ -69,7 +69,6 @@ class DataPackage extends Package {
 			'address',
 			'boolean',
 			'date_time',
-			'default',
 			'image_file',
 			'number',
 			'rating',
