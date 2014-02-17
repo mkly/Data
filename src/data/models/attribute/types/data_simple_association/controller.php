@@ -54,12 +54,61 @@ class DataSimpleAssociationAttributeTypeController extends AttributeTypeControll
 	 * @param int $value
 	 */
 	public function saveValue($value) {
-		$belongsTo = new DataSimpleAssociationAttributeTypeValue;
-		if (!$belongsTo->Load('avID=?', array($this->getAttributeValueID()))) {
-			$belongsTo->avID = $this->getAttributeValueID();
+		if ($this->getSettings()->multipleAssociations) {
+			$this->saveMultipleValues((array) $value);
+			return;
 		}
-		$belongsTo->dID = $value;
-		$belongsTo->Save();
+		$this->saveSingleValue($value);
+	}
+
+	/**
+	 * @todo get this in the model
+	 * @param int $value
+	 */
+	protected function saveSingleValue($value) {
+		$assoc = new DataSimpleAssociationAttributeTypeValue;
+		if (!$assoc->Load('avID=?', array($this->getAttributeValueID()))) {
+			$assoc->avID = $this->getAttributeValueID();
+		}
+		$assoc->dID = $value;
+		$assoc->Save();
+	}
+
+	/**
+	 * @todo get this in the model
+	 * @param array $values
+	 */
+	protected function saveMultipleValues($values) {
+		$Assoc = new DataSimpleAssociationAttributeTypeValue;
+		$assocs = $Assoc->Find('avID=?', array($this->getAttributeValueID()));
+
+		foreach ($values as $value) {
+			$assoc = new DataSimpleAssociationAttributeTypeValue;
+			/**
+			 * Find any skip any that are already saved
+			 * If not found Insert a new one
+			 */
+			if ($assoc->Load('avID=? AND dID=?', array($this->getAttributeValueID(), $value))) {
+				foreach ($assocs as $j => $a) {
+					if ($a->aID === $assoc->aID) {
+						unset($assocs[$j]);
+						break;
+					}
+				}
+			} else {
+				$assoc->avID = $this->getAttributeValueID();
+				$assoc->dID = $value;
+				$assoc->Insert();
+			}
+		}
+
+		/**
+		 * Delete any records not found in this update
+		 * As that means they were not set(unchecked)
+		 */
+		foreach ($assocs as $a) {
+			$a->Delete();
+		}
 	}
 
 	/**
@@ -135,5 +184,18 @@ class DataSimpleAssociationAttributeTypeController extends AttributeTypeControll
 		$this->set('dataType', $dataType);
 		$this->set('dataSelector', Loader::helper('form/data_selector', 'data'));
 		$this->set('settings', $this->settings);
+
+		if ($this->getSettings()->multipleAssociations) {
+			$Assoc = new DataSimpleAssociationAttributeTypeValue;
+			$datas = array();
+			foreach ($Assoc->Find('avID=?', array($this->getAttributeValueID())) as $assoc) {
+				$datas[] = $assoc->getData();
+			}
+			$this->set('datas', $datas);
+		} else {
+			$assoc = new DataSimpleAssociationAttributeTypeValue;
+			$assoc->Load('avID=?', array($this->getAttributeValueID()));
+			$this->set('data', $assoc->getData());
+		}
 	}
 }

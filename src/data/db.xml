@@ -131,8 +131,13 @@
 		</field>
 	</table>
 	<table name="atDataSimpleAssociation">
-		<field name="avID" type="I" size="10">
+		<field name="aID" type="I" size="10">
 			<KEY/>
+			<NOTNULL/>
+			<UNSIGNED/>
+			<AUTOINCREMENT/>
+		</field>
+		<field name="avID" type="I" size="10">
 			<NOTNULL/>
 			<UNSIGNED/>
 		</field>

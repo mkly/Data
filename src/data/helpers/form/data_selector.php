@@ -5,10 +5,11 @@ class FormDataSelectorHelper {
 
 	/**
 	 * @param string $fieldName
-	 * @param int $dtID
+	 * @param Data $data
+	 * @param DataType $dataType
 	 * @return string
 	 */
-	public function select($fieldName, $dID = 0, $dataType) {
+	public function select($fieldName, $data, $dataType) {
 		$DataList = new DataList($dataType);
 		$dataSelects = array();
 		foreach ($DataList->get() as $data) {
@@ -19,13 +20,18 @@ class FormDataSelectorHelper {
 
 	/**
 	 * @param string $fieldName
-	 * @param array $dtID
+	 * @param array $datas Data
+	 * @param DataType $dataType
 	 * @return string
 	 */
-	public function multiSelect($fieldName, array $dIDs, $dataType) {
+	public function multiSelect($fieldName, $datas, $dataType) {
 		$form = Loader::helper('form');
 		$DataList = new DataList($dataType);
 		$html = '<ul class="inputs-list">';
+		$dIDs = array();
+		foreach ($datas as $data) {
+			$dIDs[] = $data->dID;
+		}
 		foreach ($DataList->get() as $data) {
 			$html .= '<li>' . $form->checkbox($fieldName . '[]', $data->dID, in_array($data->dID, $dIDs) ? $data->dID : 0) . ' ' . $data->name->getValue() . '</li>';
 		}

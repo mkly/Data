@@ -2,7 +2,7 @@
 defined('C5_EXECUTE') or die('Access Denied.');
 
 if ($settings->multipleAssociations) {
-	$dataSelector->multiSelect($this->field('value'), array($data->dID), $dataType);
+	echo $dataSelector->multiSelect($this->field('value'), $datas, $dataType);
 } else {
-	$dataSelector->select($this->field('value'), $data->dID, $dataType);
+	echo $dataSelector->select($this->field('value'), $data, $dataType);
 }

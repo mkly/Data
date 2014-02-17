@@ -9,4 +9,5 @@ class DataSimpleAssociationAttributeTypeValue extends Model {
 		$data->Load('dID=?', array($this->dID));
 		return $data;
 	}
+
 }
