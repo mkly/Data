@@ -8,7 +8,7 @@ class DataTypeTest extends DataDatabaseTestCase {
 
 	public function testImportDataType() {
 		$xml = new SimpleXMLElement('
-			<DataType dtName="Test" dtHandle="test"/>
+			<datatype dtName="Test" dtHandle="test"/>
 		');
 		$DataType = new DataType;
 		$dataType = $DataType->import($xml);
@@ -19,11 +19,11 @@ class DataTypeTest extends DataDatabaseTestCase {
 
 	public function testImportDataTypeWithDatas() {
 		$xml = new SimpleXMLElement('
-			<DataType dtName="Testing" dtHandle="testing">
-				<Data/>
-				<Data/>
-				<Data/>
-			</DataType>
+			<datatype dtName="Testing" dtHandle="testing">
+				<data/>
+				<data/>
+				<data/>
+			</datatype>
 		');
 		$DataType = new DataType;
 		$dataType = $DataType->import($xml);
@@ -32,10 +32,11 @@ class DataTypeTest extends DataDatabaseTestCase {
 
 	public function testImportDataTypeIncorrectElementName() {
 		$xml = new SimpleXMLElement('
-			<Data dtName="Test" dtHandle="test"/>
+			<data dtName="Test" dtHandle="test"/>
 		');
 		$DataType = new DataType;
 		$this->setExpectedException('DataTypeException');
 		$DataType->import($xml);
 	}
+
 }

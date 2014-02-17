@@ -12,16 +12,16 @@ class DataTest extends DataDatabaseTestCase {
 		$dataType->dtName = 'Testing';
 		$dataType->Insert();
 		$xml = new SimpleXMLElement('
-			<DataType dtHandle="testing"><Data/></DataType>
+			<datatype dtHandle="testing"><data/></datatype>
 		');
 		$Data = new Data;
-		$data = $Data->import($xml->children()->Data);
+		$data = $Data->import($xml->children()->data);
 		$this->assertNotNull($data->dID);
 	}
 
 	public function testImportDataIncorrectElementName() {
 		$xml = new SimpleXMLElement('
-			<DataType/>
+			<datatype/>
 		');
 		$Data = new Data;
 		$this->setExpectedException('DataException');
@@ -30,7 +30,7 @@ class DataTest extends DataDatabaseTestCase {
 
 	public function testImportDataNoDataTypeHandle() {
 		$xml = new SimpleXMLElement('
-			<DataType><Data/></DataType>
+			<datatype><data/></datatype>
 		');
 		$Data = new Data;
 		$this->setExpectedException('DataException');
@@ -39,7 +39,7 @@ class DataTest extends DataDatabaseTestCase {
 
 	public function testImportDataTypeNotFound() {
 		$xml = new SimpleXMLElement('
-			<DataType dtHandle="randomstring"><Data/></DataType>
+			<datatype dtHandle="randomstring"><data/></datatype>
 		');
 		$Data = new Data;
 		$this->setExpectedException('DataException');

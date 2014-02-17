@@ -54,15 +54,15 @@ class DataType extends Model {
 	}
 
 	public function import($node) {
-		if ($node->getName() !== 'DataType') {
+		if ($node->getName() !== 'datatype') {
 			throw new DataTypeException(t('Invalid Element'));
 		}
 		$dataType = new DataType;
 		$dataType->dtName = $node->attributes()->dtName;
 		$dataType->dtHandle = $node->attributes()->dtHandle;
 		$dataType->Insert();
-		if ($node->children()->Data) {
-			foreach ($node->children()->Data as $data) {
+		if ($node->children()->data) {
+			foreach ($node->children()->data as $data) {
 				$data = new Data;
 				$data->dtID = $dataType->dtID;
 				$data->Insert();

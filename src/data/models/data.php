@@ -147,7 +147,7 @@ class Data extends Model {
 	}
 
 	public function import($node) {
-		if ($node->getName() !== 'Data') {
+		if ($node->getName() !== 'data') {
 			throw new DataException(t('Invalid Element'));
 		}
 		$parent = current($node->xpath('parent::*'));
