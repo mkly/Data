@@ -17,6 +17,6 @@ ln -s ../../../../../src/data ./core/concrete5/web/packages/data
 rm -rf ./fixtures
 mkdir ./fixtures
 mysqldump --xml -t -u $1 -p$2 concrete5_tests > ./fixtures/database.xml
-mysqldump -u $1 -p$2 concrete5_tests > ./fixtures/database.sql
+mysqldump --single-transaction --extended-insert -u $1 -p$2 concrete5_tests > ./fixtures/database.sql
 mysqldump -d -u $1 -p$2 concrete5_tests > ./fixtures/schema.sql
 ./split_fixtures.php

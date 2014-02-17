@@ -13,7 +13,11 @@ if (!getenv('TRAVIS')) {
 	include_once(dirname(__FILE__) . '/test_config_travis.php');
 }
 $pdo = new PDO('mysql:host=' . $config['db-server'] . ';dbname=' . $config['db-database'], $config['db-username'], $config['db-password']);
+$pdo->exec('SET unique_checks=0;');
+$pdo->exec('SET foreign_key_checks=0;');
 $pdo->exec(file_get_contents(dirname(__FILE__) . '/fixtures/database.sql'));
+$pdo->exec('SET unique_checks=1;');
+$pdo->exec('SET foreign_key_checks=1;');
 unset($pdo);
 unset($config);
 require_once(dirname(__FILE__) . '/core/concrete5/web/concrete/dispatcher.php');
