@@ -267,4 +267,42 @@ class DataAttributeKey extends AttributeKey {
 			$this->getAttributeKeyHandle()
 		);
 	}
+
+	/**
+	 * @param SimpleXMLElement $xml
+	 */
+	public function export($xml) {
+		$node = parent::export($xml);
+		$node->addAttribute('dtHandle', $this->getDataType()->dtHandle);
+		return $node;
+	}
+
+	/**
+	 * @todo that AttributeKey is kind of awkward
+	 * @param SimpleXMLElement $xml
+	 */
+	public static function import($xml) {
+		$dataType = new DataType;
+		$dataType->Load('dtHandle=?', array($xml->attributes()->dtHandle));
+		if (Loader::db()->GetOne('
+			SELECT akID
+			FROM   AttributeKeys
+			WHERE  akHandle = ?
+		', array($xml['handle']))) {
+			return;
+		}
+		$DataAttributeKey = new DataAttributeKey;
+		$DataAttributeKey->add(
+			(string) $xml['type'],
+			array(
+				'dtID' => $dataType->dtID,
+				'akHandle' => $xml['handle'],
+				'akName' => $xml['name'],
+				'akIsInternale' => $xml['akIsInternal'],
+				'akIsSearchableIndexed' => $xml['indexed'],
+				'akIsSearchable' => $xml['searchable']
+			),
+			$dataType
+		);
+	}
 }

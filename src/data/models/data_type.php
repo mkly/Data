@@ -65,6 +65,11 @@ class DataType extends Model {
 		$dataType->dtName = $node->attributes()->dtName;
 		$dataType->dtHandle = $node->attributes()->dtHandle;
 		$dataType->Insert();
+		if ($node->attributekeys) {
+			foreach ($node->attributekeys->attributekey as $akNode) {
+				DataAttributeKey::import($akNode);
+			}
+		}
 		if ($node->children()->data) {
 			foreach ($node->children()->data as $data) {
 				$data = new Data;

@@ -30,6 +30,21 @@ class DataTypeTest extends DataDatabaseTestCase {
 		$this->assertEquals(3, count($dataType->datas));
 	}
 
+	public function testImportDataTypeWithAttributeKeys() {
+		$xml = new SimpleXMLElement('
+			<datatype dtName="Test" dtHandle="test">
+				<attributekeys>
+					<attributekey handle="data_test_one" name="Data Test One" package="data" type="text" searchable="1" indexed="0" category="data" dtHandle="test"/>
+					<attributekey handle="data_test_two" name="Data Test Twe" package="data" type="text" searchable="0" indexed="1" category="data" dtHandle="test"/>
+				</attributekeys>
+			</datatype>
+		');
+		$DataType = new DataType;
+		$dataType = $DataType->import($xml);
+		$this->assertEquals(2, count($dataType->attributes));
+		$this->assertInstanceOf('DataAttributeKey', current($dataType->attributes));
+	}
+
 	public function testImportDataTypeIncorrectElementName() {
 		$xml = new SimpleXMLElement('
 			<data dtName="Test" dtHandle="test"/>
