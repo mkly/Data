@@ -24,4 +24,16 @@ class DataAttributeKeyTest extends PHPUnit_Framework_TestCase {
 
 		$this->assertEquals('testing', $stub->getShortHandle());
 	}
+
+	public function testAddDataAttributeKey() {
+		$res = DataAttributeKey::add(
+			'text',
+			array('akHandle' => 'one', 'akName' => 'One'),
+			$dataType
+		);
+		$dak = DataAttributeKey::getByID($res->getAttributeKeyID());
+		$this->assertInstanceOf('DataAttributeKey', $dak);
+		$this->assertEquals('One', $dak->getAttributeKeyName());
+	}
+
 }
