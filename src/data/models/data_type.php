@@ -16,6 +16,10 @@ class DataType extends Model {
 		return parent::__get($name);
 	}
 
+	public function reset($name) {
+		unset($this->{$name});
+	}
+
 	protected function getDatas() {
 		if (isset($this->datas)) return $this->datas;
 
@@ -71,10 +75,17 @@ class DataType extends Model {
 		return $dataType;
 	}
 
+	/**
+	 * @param SimpleXMLElement $xml
+	 */
 	public function export($xml) {
 		$node = $xml->addChild('datatype');
 		$node->addAttribute('dtHandle', $this->dtHandle);
 		$node->addAttribute('dtName', $this->dtName);
+		$attributes = $node->addChild('attributekeys');
+		foreach ($this->getAttributes() as $attribute) {
+			$attribute->export($attributes);
+		}
 		return $node;
 	}
 
