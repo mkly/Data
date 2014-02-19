@@ -154,4 +154,31 @@ class DashboardDataAdministrationController extends DataDashboardBaseController 
 		exit;
 	}
 
+	public function import() {
+		if ($this->isPost()) {
+			if (!isset($_FILES['import'])) {
+				$this->flashError(t('Invalid File'));
+				$this->redirect($this->path('import'));
+			}
+			$file = $_FILES['import']['tmp_name'];
+			$filename = $_FILES['import']['name'];
+			if (!is_uploaded_file($file)) {
+				$this->flashError(t('Invalid File'));
+				$this->redirect($this->path('import'));
+			}
+			if (!Loader::helper('validation/file')->extension($filename, array('xml'))) {
+				$this->flashError(t('File must be .xml'));
+				$this->redirect($this->path('import'));
+			}
+			$xml = new SimpleXMLElement($file, 0, true);
+			$DataType = new DataType;
+			foreach ($xml->datatype as $datatype) {
+				$DataType->import($datatype);
+			}
+			$this->flashSuccess(t('Data Type Imported'));
+			$this->redirect($this->path());
+		}
+		$this->render('import');
+	}
+
 }
