@@ -156,6 +156,15 @@ class DataType extends Model {
 				   ->clearPermissionAssignment();
 			}
 		}
+
+		foreach ($this->getAttributes() as $ak) {
+			$ak->delete();
+		}
+
+		foreach ($this->getDatas() as $data) {
+			$data->Delete();
+		}
+
 		parent::Delete();
 	}
 
