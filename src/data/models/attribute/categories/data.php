@@ -273,6 +273,7 @@ class DataAttributeKey extends AttributeKey {
 	 */
 	public function export($xml) {
 		$node = parent::export($xml);
+		$node->addAttribute('shortHandle', $this->getShortHandle());
 		$node->addAttribute('dtHandle', $this->getDataType()->dtHandle);
 		return $node;
 	}
@@ -296,7 +297,7 @@ class DataAttributeKey extends AttributeKey {
 			(string) $xml['type'],
 			array(
 				'dtID' => $dataType->dtID,
-				'akHandle' => $xml['handle'],
+				'akHandle' => $xml['shortHandle'],
 				'akName' => $xml['name'],
 				'akIsInternale' => $xml['akIsInternal'],
 				'akIsSearchableIndexed' => $xml['indexed'],
