@@ -275,4 +275,13 @@ class DataSimpleAssociationAttributeTypeController extends AttributeTypeControll
 			$this->set('data', $assoc->getData());
 		}
 	}
+
+	/**
+	 * @param SimpleXMLElement $xml
+	 */
+	public function exportKey($xml) {
+		$type = $xml->addChild('type');
+		$type->addAttribute('dtHandle', $this->getSettings()->dataType->dtHandle);
+		$type->addAttribute('multipleAssociations', $this->getSettings()->multipleAssociations);
+	}
 }
