@@ -1,5 +1,5 @@
 <?php defined('C5_EXECUTE') or die('Access Denied.') ?>
-<?= $dashboard->getDashboardPaneHeaderWrapper(t('Create Data Type'), false, false, false) ?>
+<?= $dashboard->getDashboardPaneHeaderWrapper(t('Create Data Type'), false, false, false, $navigation) ?>
 <form method="post" action="<?= $this->action('create') ?>">
 	<div class="ccm-pane-body">
 		<?= $form->label('dtHandle', t('Handle')) ?>

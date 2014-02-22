@@ -1,5 +1,5 @@
 <?php defined('C5_EXECUTE') or die('Access Denied.') ?>
-<?= $dashboard->getDashboardPaneHeaderWrapper(t('Edit Data Type'), false, false, false) ?>
+<?= $dashboard->getDashboardPaneHeaderWrapper(t('Edit Data Type'), false, false, false, $navigation) ?>
 <form method="post" action="<?= $this->action('delete', $dataType->dtID) ?>">
 	<div class="ccm-pane-body">
 		<h3>Are you sure you want to delete this data type?</h3>

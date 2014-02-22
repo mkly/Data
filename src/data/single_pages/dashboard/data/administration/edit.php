@@ -1,5 +1,5 @@
 <?php defined('C5_EXECUTE') or die('Access Denied.') ?>
-<?= $dashboard->getDashboardPaneHeaderWrapper(t('Edit Data Type'), false, false, false) ?>
+<?= $dashboard->getDashboardPaneHeaderWrapper(t('Edit Data Type'), false, false, false, $navigation) ?>
 <form method="post" action="<?= $this->action('edit', $dataType->dtID) ?>">
 	<div class="ccm-pane-body">
 		<?= $form->label('dtName', t('Name')) ?>

@@ -1,5 +1,5 @@
 <?php defined('C5_EXECUTE') or die('Access Denied.') ?>
-<?= $dashboard->getDashboardPaneHeaderWrapper(t('Import Data Type'), false, false, false) ?>
+<?= $dashboard->getDashboardPaneHeaderWrapper(t('Import Data Type'), false, false, false, $navigation) ?>
 <form enctype="multipart/form-data" method="post" action="<?= $this->action('import') ?>">
 <div class="ccm-pane-body">
 	<?= $form->file('import') ?>

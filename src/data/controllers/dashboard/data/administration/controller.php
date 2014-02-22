@@ -22,6 +22,10 @@ class DashboardDataAdministrationController extends DataDashboardBaseController 
 		if (!$dataType->Load('dtID=?', array($dtID))) {
 			$this->redirect($this->path('search'));
 		}
+
+		$this->navigation = array(
+			t('Data Types') => '/dashboard/data/administration/search'
+		);
 		$this->set('dataType', $dataType);
 	}
 
@@ -36,6 +40,10 @@ class DashboardDataAdministrationController extends DataDashboardBaseController 
 
 	public function create() {
 		if (!$this->isPost()) {
+
+			$this->navigation = array(
+				t('Data Types') => '/dashboard/data/administration/search'
+			);
 			$this->render('create');
 		}
 
@@ -107,6 +115,11 @@ class DashboardDataAdministrationController extends DataDashboardBaseController 
 		$this->set('types', $types);
 		$this->set('dataType', $dataType);
 
+
+		$this->navigation = array(
+			t('Data Types') => '/dashboard/data/administration/search',
+			t('View') => '/dashboard/data/administration/' . $dataType->dtID
+		);
 		$this->render('edit');
 	}
 
@@ -132,6 +145,11 @@ class DashboardDataAdministrationController extends DataDashboardBaseController 
 		}
 
 		$this->set('dataType', $dataType);
+
+		$this->navigation = array(
+			t('Edit') => '/dashboard/data/administration/edit/' . $dataType->dtID,
+			t('View') => '/dashboard/data/administration/' . $dataType->dtID
+		);
 		$this->render('delete');
 	}
 
@@ -178,6 +196,10 @@ class DashboardDataAdministrationController extends DataDashboardBaseController 
 			$this->flashSuccess(t('Data Type Imported'));
 			$this->redirect($this->path());
 		}
+
+		$this->navigation = array(
+			t('Data Types') => '/dashboard/data/administration/search'
+		);
 		$this->render('import');
 	}
 
