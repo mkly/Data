@@ -1,5 +1,5 @@
 <?php defined('C5_EXECUTE') or die('Access Denied.') ?>
-<?= $dashboard->getDashboardPaneHeaderWrapper($dataType->dtName, false, false, false) ?>
+<?= $dashboard->getDashboardPaneHeaderWrapper($dataType->dtName, false, false, false, $navigation) ?>
 <div class="ccm-pane-options">
 	<form class="form-horizontal">
 		<div class="ccm-pane-options-permanent-search">

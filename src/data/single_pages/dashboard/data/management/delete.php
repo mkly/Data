@@ -1,6 +1,6 @@
 <?php defined('C5_EXECUTE') or die('Access Denied.') ?>
 
-<?= $dashboard->getDashboardPaneHeaderWrapper(t('Delete Attribute'), false, false, false) ?>
+<?= $dashboard->getDashboardPaneHeaderWrapper(t('Delete Attribute'), false, false, false, $navigation) ?>
 <form method="post">
 <div class="ccm-pane-body">
 	<h2><?= t('Warning') ?></h2>

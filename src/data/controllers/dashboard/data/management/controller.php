@@ -25,6 +25,9 @@ class DashboardDataManagementController extends DataDashboardBaseController {
 			$this->render('data_types');
 		}
 
+		$this->navigation = array(
+			t('Search') => '/dashboard/data/management/search/' . $dataType->dtID
+		);
 		$this->set('data', $data);
 	}
 
@@ -59,6 +62,9 @@ class DashboardDataManagementController extends DataDashboardBaseController {
 			$this->redirect($this->path('search'), $dataType->dtID);
 		}
 
+		$this->navigation = array(
+			t('Search') => '/dashboard/data/management/search/' . $dataType->dtID
+		);
 		$this->render('create');
 	}
 
@@ -102,6 +108,9 @@ class DashboardDataManagementController extends DataDashboardBaseController {
 			$this->redirect($this->path('search'), $dataType->dtID);
 		}
 
+		$this->navigation = array(
+			t('Search') => '/dashboard/data/management/search/' . $dataType->dtID
+		);
 		$this->render('edit');
 	}
 
@@ -138,6 +147,11 @@ class DashboardDataManagementController extends DataDashboardBaseController {
 		$this->set('data', $data);
 		$this->set('dataType', $dataType);
 
+
+		$this->navigation = array(
+			t('Search') => '/dashboard/data/management/search/' . $dataType->dtID,
+			t('Edit') => '/dashboard/data/management/edit/' . $dataType->dtID . '/' . $data->dID
+		);
 		$this->render('delete');
 	}
 

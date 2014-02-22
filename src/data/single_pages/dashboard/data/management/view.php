@@ -1,5 +1,5 @@
 <?php defined('C5_EXECUTE') or die('Access Denied.') ?>
-<?= $dashboard->getDashboardPaneHeaderWrapper(t('Data') . ': ' . $data->name->getValue('display'), false, false, false) ?>
+<?= $dashboard->getDashboardPaneHeaderWrapper(t('Data') . ': ' . $data->name->getValue('display'), false, false, false, $navigation) ?>
 <div class="ccm-pane-body">
 	<h1><?= $data->name->getValue('display') ?></h1>
 	<h3><small><?= t('Data Type') ?>:</small> <?= $data->getDataType()->dtName ?></h3>

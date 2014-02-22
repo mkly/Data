@@ -1,5 +1,5 @@
 <?php defined('C5_EXECUTE') or die('Access Denied.') ?>
-<?= $dashboard->getDashboardPaneHeaderWrapper(t('Data Type Management'), false, false) ?>
+<?= $dashboard->getDashboardPaneHeaderWrapper(t('Data Type Management'), false, false, true, $navigation) ?>
 <table class="ccm-results-list">
 	<tr class="ccm-results-list-header">
 		<th><?= t('Name') ?></th>

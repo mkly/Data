@@ -5,6 +5,7 @@ class DataDashboardBaseController extends DashboardBaseController {
 
 	protected $message;
 	protected $success;
+	protected $navigation = array();
 
 	public function on_start() {
 		parent::on_start();
@@ -36,6 +37,18 @@ class DataDashboardBaseController extends DashboardBaseController {
 		$this->set('error', $this->error);
 		$this->set('message', $this->message);
 		$this->set('success', $this->success);
+
+		$navigation = array();
+		foreach ($this->navigation as $name => $path) {
+			$p = new Page;
+			$p->cID = 0;
+			$p->cvName = $name;
+			$p->cPath = $path;
+			$navigation[] = $p;
+		}
+		if ($navigation) {
+			$this->set('navigation', $navigation);
+		}
 	}
 
 	protected function flashSuccess($text) {

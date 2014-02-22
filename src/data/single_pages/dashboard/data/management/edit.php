@@ -1,5 +1,5 @@
 <?php defined('C5_EXECUTE') or die('Access Denied.') ?>
-<?= $dashboard->getDashboardPaneHeaderWrapper($dataType->dtName, false, false, false) ?>
+<?= $dashboard->getDashboardPaneHeaderWrapper($dataType->dtName, false, false, false, $navigation) ?>
 <form method="post" action="<?= $this->action('edit', $dataType->dtID, $data->dID) ?>">
 	<div class="ccm-pane-body">
 		<?php foreach ($attributes as $attribute) { ?>
