@@ -284,4 +284,21 @@ class DataSimpleAssociationAttributeTypeController extends AttributeTypeControll
 		$type->addAttribute('dtHandle', $this->getSettings()->dataType->dtHandle);
 		$type->addAttribute('multipleAssociations', $this->getSettings()->multipleAssociations);
 	}
+
+	/**
+	 * @param SimpleXMLElement $xml
+	 */
+	public function importKey($xml) {
+		if (!isset($xml->type)) {
+			return;
+		}
+		$dataType = new DataType;
+		if (!$dataType->Load('dtHandle=?', array($xml->dtHandle))) {
+			return;
+		}
+		$this->settings = $this->getSettings();
+		$this->settings->dtID = $dataType->dtID;
+		$this->settings->multipleAssociations = $xml->type['multipleAssociations'];
+		$this->settings->Import();
+	}
 }
