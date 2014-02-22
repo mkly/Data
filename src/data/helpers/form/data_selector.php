@@ -27,7 +27,8 @@ class FormDataSelectorHelper {
 	public function multiSelect($fieldName, $datas, $dataType) {
 		$form = Loader::helper('form');
 		$DataList = new DataList($dataType);
-		$html = '<ul class="inputs-list">';
+		$html = $form->hidden($fieldName . '[]', 0);
+		$html .= '<ul class="inputs-list">';
 		$dIDs = array();
 		foreach ($datas as $data) {
 			$dIDs[] = $data->dID;

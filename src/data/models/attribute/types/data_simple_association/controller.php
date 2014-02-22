@@ -159,7 +159,7 @@ class DataSimpleAssociationAttributeTypeController extends AttributeTypeControll
 		$Assoc = new DataSimpleAssociationAttributeTypeValue;
 		$assocs = $Assoc->Find('avID=?', array($this->getAttributeValueID()));
 
-		foreach ($values as $value) {
+		foreach (array_filter($values) as $value) {
 			$assoc = new DataSimpleAssociationAttributeTypeValue;
 			/**
 			 * Find any skip any that are already saved
