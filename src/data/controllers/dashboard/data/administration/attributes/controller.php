@@ -22,6 +22,10 @@ class DashboardDataAdministrationAttributesController extends DataDashboardBaseC
 		foreach (AttributeType::getList('data') as $at) {
 			$types[$at->getAttributeTypeID()] = $at->getAttributeTypeName();
 		}
+		
+		$this->navigation = array(
+			t('Data Type') => '/dashboard/data/administration/' . $dataType->dtID
+		);
 		$this->set('types', $types);
 
 	}
@@ -109,6 +113,10 @@ class DashboardDataAdministrationAttributesController extends DataDashboardBaseC
 		$this->set('akIsSearchableIndexed', $this->post('akIsSearchableIndexed', $ak->isAttributeKeyContentIndexed()));
 		$this->set('akIsSearchable', $this->post('akIsSearchable', $ak->isAttributeKeySearchable()));
 
+		$this->navigation = array(
+			t('Data Type') => '/dashboard/data/administration/' . $dataType->dtID,
+			t('Attributes') => '/dashboard/data/administration/attributes/' . $dataType->dtID
+		);
 		$this->render('edit');
 	}
 
@@ -129,6 +137,11 @@ class DashboardDataAdministrationAttributesController extends DataDashboardBaseC
 		}
 		$this->set('dataType', $dataType);
 		$this->set('key', $dak);
+
+		$this->navigation = array(
+			t('Data Type') => '/dashboard/data/administration/' . $dataType->dtID,
+			t('Attributes') => '/dashboard/data/administration/attributes/' . $dataType->dtID
+		);
 		$this->render('delete');
 	}
 }

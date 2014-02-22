@@ -1,5 +1,5 @@
 <?php defined('C5_EXECUTE') or die('Access Denied.') ?>
-<?= $dashboard->getDashboardPaneHeaderWrapper(t('%s Attributes', $dataType->dtName), false, false, false) ?>
+<?= $dashboard->getDashboardPaneHeaderWrapper(t('%s Attributes', $dataType->dtName), false, false, false, $navigation) ?>
 <div class="ccm-pane-body">
 	<div class="ccm-attribute-list-wrapper">
 	<?php foreach ($dataType->attributes as $ak) { ?>

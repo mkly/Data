@@ -1,6 +1,6 @@
 <?php defined('C5_EXECUTE') or die('Access Denied.') ?>
 
-<?= $dashboard->getDashboardPaneHeaderWrapper(t('Edit %s Attribute', $dataType->dtName), false, false, false) ?>
+<?= $dashboard->getDashboardPaneHeaderWrapper(t('Edit %s Attribute', $dataType->dtName), false, false, false, $navigation) ?>
 <form method="post">
 <div class="ccm-pane-body">
 	<?= $form->hidden('akID', $key->getAttributeKeyID()) ?>
