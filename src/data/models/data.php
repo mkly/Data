@@ -44,6 +44,7 @@ class Data extends Model {
 	 */
 	public function getAttributeValueObject($ak, $createIfNotFound = false) {
 		$db = Loader::db();
+		$av = false;
 
 		if ($avID = $db->GetOne('
 			SELECT avID
@@ -122,7 +123,9 @@ class Data extends Model {
 	public function getAttributeValueObjects() {
 		$avos = array();
 		foreach ($this->getDataType()->attributes as $attribute) {
-			$avos[] = $this->getAttributeValueObject($attribute);
+			if ($avo = $this->getAttributeValueObject($attribute)) {
+				$avos[] = $this->getAttributeValueObject($attribute);
+			}
 		}
 		return $avos;
 	}
