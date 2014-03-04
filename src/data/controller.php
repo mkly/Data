@@ -98,6 +98,16 @@ class DataPackage extends Package {
 			$sp->setAttribute('exclude_nav', 1);
 		}
 
+		foreach (array(
+			'data/management' => 'icon-list',
+			'data/administration' => 'icon-wrench',
+		) as $path => $icon) {
+			$sp = Page::getByPath('/dashboard/' . $path);
+			if ($sp instanceof Page && !$sp->isError()) {
+				$sp->setAttribute('icon_dashboard', $icon);
+			}
+		}
+
 		$pkc = PermissionKeyCategory::add('data_type', $pkg);
 		foreach (array(
 			'group',
