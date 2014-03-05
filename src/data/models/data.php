@@ -139,7 +139,7 @@ class Data extends Model {
 		', array($this->dID));
 		return AttributeKey::reindex(
 			'DataSearchIndexAttributes',
-			array('dID' => $this->dID),
+			array('dID' => $this->dID, 'dtID' => $this->getDataType()->dtID),
 			DataAttributeKey::getAttributes($this->dID, 'getSearchIndexValue'),
 			$db->Execute('
 				SELECT *
