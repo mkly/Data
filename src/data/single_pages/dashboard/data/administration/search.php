@@ -17,7 +17,7 @@
 			<?php $alt = ''; foreach ($dataTypes as $dataType) { ?>
 				<?php if (!$dataType->permissions->canViewDataType()) continue ?>
 				<tr class="ccm-list-record<?= $alt ?>">
-	<td><a href="<?= $this->url('/dashboard/data/administration', $dataType->dtID) ?>"><?= $dataType->dtName ?></a></td>
+					<td><a href="<?= $this->url('/dashboard/data/administration', $dataType->dtID) ?>"><?= $dataType->dtName ?></a></td>
 				</tr>
 			<?php $alt = $alt ? '' : ' ccm-list-record-alt'; } ?>
 		<?php } ?>
