@@ -1,0 +1,453 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Data\n"
+"POT-Creation-Date: 2014-03-05 08:13+0100\n"
+"PO-Revision-Date: 2014-03-05 08:25+0100\n"
+"Last-Translator: Remo Laubacher <remo.laubacher@gmail.com>\n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: t\n"
+"X-Poedit-SearchPath-0: C:\\Work\\Data\n"
+
+#: C:\Work\Data/src/data/controller.php:11
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/view.php:2
+msgid "Data"
+msgstr "Data"
+
+#: C:\Work\Data/src/data/controller.php:15
+msgid "Data for concrete5"
+msgstr "Data für concrete5"
+
+#: C:\Work\Data/src/data/controller.php:60
+msgid "Data Simple Association"
+msgstr "Einfache Datenbeziehung"
+
+#: C:\Work\Data/src/data/controller.php:61
+msgid "Data Single Child Association"
+msgstr "Vater-Kind Datenbeziehung"
+
+#: C:\Work\Data/src/data/controller.php:126
+#: C:\Work\Data/src/data/controller.php:127
+msgid "View Data Type"
+msgstr "Data-Typ anzeigen"
+
+#: C:\Work\Data/src/data/controller.php:130
+#: C:\Work\Data/src/data/controller.php:131
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/delete.php:2
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/edit.php:2
+msgid "Edit Data Type"
+msgstr "Data-Typ bearbeiten"
+
+#: C:\Work\Data/src/data/controller.php:134
+#: C:\Work\Data/src/data/controller.php:135
+msgid "Delete Data Type"
+msgstr "Data-Typ löschen"
+
+#: C:\Work\Data/src/data/controller.php:138
+#: C:\Work\Data/src/data/controller.php:139
+msgid "Edit Data Type Permissions"
+msgstr "Data-Typ Berechtigungen bearbeiten"
+
+#: C:\Work\Data/src/data/controller.php:142
+#: C:\Work\Data/src/data/controller.php:143
+msgid "Edit Data"
+msgstr "Data bearbeiten"
+
+#: C:\Work\Data/src/data/controller.php:146
+#: C:\Work\Data/src/data/controller.php:147
+msgid "Delete Data"
+msgstr "Data löschen"
+
+#: C:\Work\Data/src/data/controller.php:150
+#: C:\Work\Data/src/data/controller.php:151
+msgid "Create Data"
+msgstr "Data erstellen"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:12
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:40
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:80
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:126
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:86
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:132
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:163
+#: C:\Work\Data/src/data/controllers/dashboard/data/management/controller.php:15
+msgid "Data Type Not Found"
+msgstr "Data-Typ nicht gefunden"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:27
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:117
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:142
+#: C:\Work\Data/src/data/models/attribute/types/data_simple_association/type_form.php:6
+#: C:\Work\Data/src/data/models/attribute/types/data_single_child_association/type_form.php:6
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:2
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/view.php:5
+msgid "Data Type"
+msgstr "Data-Typ"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:45
+msgid "Attribute Type Not Found"
+msgstr "Attributtyp nicht gefunden"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:56
+msgid "Attribute Added"
+msgstr "Attribut hinzugefügt"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:59
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:95
+#: C:\Work\Data/src/data/controllers/dashboard/data/management/controller.php:144
+msgid "Unknown Error"
+msgstr "Unbekannter Fehler"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:61
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:98
+msgid "** None"
+msgstr "** Keine"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:86
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:130
+msgid "Attribute Key Not Found"
+msgstr "Attribut-Schlüssel nicht gefunden"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:92
+msgid "Attribute Updated"
+msgstr "Attribut aktualisiert"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:118
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:143
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:6
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:36
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/view.php:6
+msgid "Attributes"
+msgstr "Attribute"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:135
+msgid "Attribute Deleted"
+msgstr "Attribut gelöscht"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:27
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:45
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:120
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:201
+msgid "Data Types"
+msgstr "Data Typen"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:76
+msgid "Data Type Created"
+msgstr "Data-Typ erstellt"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:91
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:137
+#: C:\Work\Data/src/data/controllers/dashboard/data/management/controller.php:22
+msgid "Access Denied"
+msgstr "Zugriff verweigert"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:107
+msgid "Data Type Updated"
+msgstr "Data-Typ aktualisiert"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:121
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:151
+msgid "View"
+msgstr "Anzeigen"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:143
+msgid "Data Type Deleted"
+msgstr "Data-Typ gelöscht"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:150
+#: C:\Work\Data/src/data/controllers/dashboard/data/management/controller.php:153
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:36
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/search.php:19
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/view.php:22
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:178
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:184
+msgid "Invalid File"
+msgstr "Ungültige Datei"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:188
+msgid "File must be .xml"
+msgstr "Datei muss im XML Format vorhanden sein"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:196
+msgid "Data Type Imported"
+msgstr "Data-Typ importiert"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/management/controller.php:29
+#: C:\Work\Data/src/data/controllers/dashboard/data/management/controller.php:66
+#: C:\Work\Data/src/data/controllers/dashboard/data/management/controller.php:112
+#: C:\Work\Data/src/data/controllers/dashboard/data/management/controller.php:152
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/search.php:7
+msgid "Search"
+msgstr "Suchen"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/management/controller.php:61
+msgid "Data Created"
+msgstr "Data erstellt"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/management/controller.php:107
+msgid "Data Updated"
+msgstr "Data aktualisiert"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/management/controller.php:141
+msgid "Data Deleted"
+msgstr "Data gelöscht"
+
+#: C:\Work\Data/src/data/elements/permission/lists/data_type.php:31
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/create.php:13
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/edit.php:13
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/import.php:10
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/delete.php:12
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/edit.php:13
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: C:\Work\Data/src/data/elements/permission/lists/data_type.php:32
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/edit.php:12
+msgid "Save"
+msgstr "Speichern"
+
+#: C:\Work\Data/src/data/models/attribute/types/data_simple_association/type_form.php:3
+msgid "Simple Association"
+msgstr "Einfache Verknüpfung"
+
+#: C:\Work\Data/src/data/models/attribute/types/data_simple_association/type_form.php:12
+msgid "Allow Mutliple Associations"
+msgstr "Mehrere Verknüpfungen erlauben"
+
+#: C:\Work\Data/src/data/models/attribute/types/data_single_child_association/type_form.php:3
+msgid "Single Child Association"
+msgstr "Kind-Verknüpfung"
+
+#: C:\Work\Data/src/data/models/data.php:154
+#: C:\Work\Data/src/data/models/data_type.php:62
+msgid "Invalid Element"
+msgstr "Ungültiges Element"
+
+#: C:\Work\Data/src/data/models/data.php:158
+msgid "DataType handle dtHandle not found"
+msgstr "Data-Typ Pseudonym dtHandle konnte nicht gefunden werden"
+
+#: C:\Work\Data/src/data/models/data.php:162
+msgid "DataType not found"
+msgstr "Data-Typ nicht gefunden"
+
+#: C:\Work\Data/src/data/models/data_type.php:101
+msgid "Maximum Name length is 255 characters"
+msgstr "Maximum Länge für den Namen sind 255 Zeichen"
+
+#: C:\Work\Data/src/data/models/data_type.php:104
+msgid "Maximum Handle length is 255 characters"
+msgstr "Maximale Länge für das Pseudonym sind 255 Zeichen"
+
+#: C:\Work\Data/src/data/models/data_type.php:107
+msgid "Handle can only contain a-z 0-9 and _"
+msgstr "Pseudonym kann nur die Buchstaben a-z, die Zahlen 0-9 und _ enthalten"
+
+#: C:\Work\Data/src/data/models/data_type.php:110
+msgid "Name is required"
+msgstr "Name ist zwingend"
+
+#: C:\Work\Data/src/data/models/data_type.php:113
+msgid "Handle is required"
+msgstr "Pseudonym muss zwingend angegeben werden"
+
+#: C:\Work\Data/src/data/models/data_type.php:124
+#, php-format
+msgid "Name already in use by %s"
+msgstr "Name wird bereits von %s verwendet"
+
+#: C:\Work\Data/src/data/models/data_type.php:131
+#, php-format
+msgid "Handle already in use by %s"
+msgstr "Pseudonym wird bereits von %s verwendet"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/create.php:3
+#, php-format
+msgid "Add %s Attribute"
+msgstr "%s Attribut hinzufügen"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/create.php:8
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/edit.php:8
+#, php-format
+msgid "%s: Basic Details"
+msgstr "%s: Details"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/create.php:11
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/edit.php:11
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/create.php:5
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/edit.php:7
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:5
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:10
+msgid "Handle"
+msgstr "Pseudonym "
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/create.php:18
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/edit.php:18
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/create.php:7
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/edit.php:5
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/search.php:12
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:9
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/data_types.php:5
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/search.php:15
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/view.php:9
+msgid "Name"
+msgstr "Name"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/create.php:25
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/edit.php:25
+msgid "Set"
+msgstr "Album"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/create.php:32
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/edit.php:32
+msgid "Searchable"
+msgstr "Durchsuchbar"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/create.php:35
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/edit.php:35
+msgid "Content included in data keyword search."
+msgstr "Inhalt in Data-Stichwortsuche einbeziehen"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/create.php:36
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/edit.php:36
+msgid "Field available in Dashboard data search."
+msgstr "Feld in der Suchfunktion verfügbar."
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/create.php:49
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/create.php:12
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/search.php:5
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/create.php:11
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/search.php:29
+msgid "Create"
+msgstr "Erstellen"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/delete.php:3
+#, php-format
+msgid "Delete %s Attribute"
+msgstr "%s Attribut löschen"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/delete.php:6
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/delete.php:6
+msgid "Warning"
+msgstr "Warnung"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/delete.php:7
+#, php-format
+msgid "You are about to delete the attribute%s%s. There is no undo."
+msgstr ""
+"Wollen Sie das Attribut %s%s wirklich löschen? Es gibt keine Möglichkeit "
+"diesen Schritt rückgängig zu machen."
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/delete.php:11
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/edit.php:50
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/delete.php:9
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/edit.php:13
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/delete.php:11
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/edit.php:12
+msgid "Delete"
+msgstr "Löschen"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/edit.php:3
+#, php-format
+msgid "Edit %s Attribute"
+msgstr "%s Attribut bearbeiten"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/edit.php:49
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/edit.php:11
+msgid "Update"
+msgstr "Speichern"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/view.php:2
+#, php-format
+msgid "%s Attributes"
+msgstr "%s Attribute"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/view.php:11
+msgid "Add Attribute"
+msgstr "Attribut hinzufügen"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/view.php:14
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/view.php:21
+msgid "Done"
+msgstr "Fertig"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/create.php:2
+msgid "Create Data Type"
+msgstr "Data-Typ erstellen"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/import.php:2
+msgid "Import Data Type"
+msgstr "Data-Typ importieren"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/import.php:9
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/search.php:6
+msgid "Import"
+msgstr "Importieren"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/search.php:2
+msgid "Data Type Administration"
+msgstr "Data-Typ Verwaltung"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/search.php:15
+msgid "No Data Types found"
+msgstr "Keine Data-Typen vorhanden"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:11
+msgid "Type"
+msgstr "Typ"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:14
+msgid "No attributes found"
+msgstr "Keine Attribute vorhanden"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:31
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:36
+msgid "Permissions"
+msgstr "Berechtigungen"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:36
+msgid "Metadata"
+msgstr "Meta-Daten"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:36
+msgid "Export"
+msgstr "Exportieren"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/data_types.php:2
+msgid "Data Type Management"
+msgstr "Data-Typ Verwaltung"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/delete.php:3
+msgid "Delete Attribute"
+msgstr "Attribut löschen"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/delete.php:7
+#, php-format
+msgid "You are about to delete the %s%s%s. There is no undo."
+msgstr ""
+"Wollen Sie %s%s%s wirklich löschen? Es gibt keine Möglichkeit diesen Schritt "
+"rückgängig zu machen."
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/view.php:10
+msgid "Value"
+msgstr "Wert"
+
+#: C:\Work\Data/tests/install/packages/data_test/controller.php:9
+msgid "Data Test"
+msgstr "Data Test"
+
+#: C:\Work\Data/tests/install/packages/data_test/controller.php:13
+msgid "Data test sample content"
+msgstr "Data Test Beispielinhalt"
