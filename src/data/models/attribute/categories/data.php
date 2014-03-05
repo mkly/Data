@@ -3,7 +3,7 @@ defined('C5_EXECUTE') or die('Access Denied.');
 
 class DataAttributeKey extends AttributeKey {
 
-	protected $searchIndexFieldDefinition = 'dID I(11) UNSIGNED NOTNULL DEFAULT 0 PRIMARY';
+	protected $searchIndexFieldDefinition = 'dID I(11) UNSIGNED NOTNULL DEFAULT 0 PRIMARY, dtID I(11) UNSIGNED NOTNULL';
 
 	/**
 	 * @return string
