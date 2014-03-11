@@ -71,10 +71,13 @@ class Data extends Model {
 	}
 
 	/**
-	 * @param $ak AttributeKey
+	 * @param $ak AttributeKey|string
 	 * @param $value mixed
 	 */
 	public function setAttribute($ak, $value) {
+		if (!is_object($ak)) {
+			$ak = DataAttributeKey::getByHandle($ak);
+		}
 		$ak->setAttribute($ak, $value);
 		$this->reindex();
 	}
