@@ -78,7 +78,7 @@ class Data extends Model {
 		if (!is_object($ak)) {
 			$ak = DataAttributeKey::getByHandle($ak);
 		}
-		$ak->setAttribute($ak, $value);
+		$ak->setAttribute($this, $value);
 		$this->reindex();
 	}
 
