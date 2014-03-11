@@ -34,8 +34,8 @@ class DataTypeTest extends DataDatabaseTestCase {
 		$xml = new SimpleXMLElement('
 			<datatype dtName="Test" dtHandle="test">
 				<attributekeys>
-					<attributekey handle="data_test_one" name="Data Test One" package="data" type="text" searchable="1" indexed="0" category="data" dtHandle="test"/>
-					<attributekey handle="data_test_two" name="Data Test Twe" package="data" type="text" searchable="0" indexed="1" category="data" dtHandle="test"/>
+					<attributekey handle="data_test_one" shortHandle="one" name="Data Test One" package="data" type="text" searchable="1" indexed="0" category="data" dtHandle="test"/>
+					<attributekey handle="data_test_two" shortHandle="two" name="Data Test Twe" package="data" type="text" searchable="0" indexed="1" category="data" dtHandle="test"/>
 				</attributekeys>
 			</datatype>
 		');

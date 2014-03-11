@@ -45,4 +45,22 @@ class DataTest extends DataDatabaseTestCase {
 		$this->setExpectedException('DataException');
 		$Data->import($xml->children()->Data);
 	}
+
+	public function testSetAttribute() {
+		$dataType = new DataType;
+		$dataType->dtName = 'Car';
+		$dataType->dtHandle = 'car';
+		$dataType->Insert();
+
+		$ak = DataAttributeKey::add('text', array('akHandle' => 'brand', 'akName' => 'Car Brand'), $dataType);
+
+		$data = new Data;
+		$data->dtID = $dataType->dtID;
+		$data->Insert();
+
+		$data->setAttribute('brand', 'Peel');
+
+		$this->assertEquals('Peel', $data->brand->getValue('display'));
+	}
+
 }

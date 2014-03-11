@@ -15,7 +15,8 @@ abstract class DataDatabaseTestCase extends PHPUnit_Extensions_Database_TestCase
 			$this->createMySQLXMLDataSet($dir . 'Config.xml'),
 			$this->createMySQLXMLDataSet($dir . 'Datas.xml'),
 			$this->createMySQLXMLDataSet($dir . 'DataTypes.xml'),
-			$this->createMySQLXMLDataSet($dir . 'DataAttributeKeys.xml')
+			$this->createMySQLXMLDataSet($dir . 'DataAttributeKeys.xml'),
+			$this->createMySQLXMLDataSet($dir . 'AttributeKeys.xml')
 		));
 	}
 }
