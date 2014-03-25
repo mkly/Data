@@ -14,23 +14,31 @@ class DataList extends DatabaseItemList {
 		$this->dataType = $dataType;
 	}
 	
-	static public function getByID($dtID) {
-    	return self::_getByDataType($dtHandle);
+	/**
+	 * @param $dtID int
+	 * @return DataType|null Null if DataType not found
+	 */
+	static public function getByDataTypeID($dtID) {
+		$dataType = new DataType;
+		if ($dataType->Load('dtID=?', array($dtID))) {
+			$dataList = new DataList($dataType);
+			return $dataList;
+		}
+		return null;
 	}
 
-	static public function getByHandle($dtHandle) {
-    	return self::_getByDataType($dtHandle);
+	/**
+	 * @param $dtHandle string
+	 * @return DataType|null Null if DataType not found
+	 */
+	static public function getByDataTypeHandle($dtHandle) {
+		$dataType = new DataType;
+		if ($dataType->Load('dtHandle=?', array($dtHandle))) {
+			$dataList = new DataList($dataType);
+			return $dataList;
+		}
+		return null;
 	}
-
-    static private function _getByDataType($args) {
-        Loader::model("data_type","data");
-    	$dataType = new DataType($args);
-    	if(is_object($dataType)){
-        	$dataList = new DataList($dataType);
-        	return $dataList;
-    	}
-    	return null;
-    }
 
 	protected function setBaseQuery() {
 		$this->setQuery('
@@ -100,5 +108,12 @@ class DataList extends DatabaseItemList {
 			return;
 		}
 		$this->filterByAttribute($handle, $args[0]);
+	}
+
+	/**
+	 * @return DataType
+	 */
+	public function getDataType() {
+		return $this->dataType;
 	}
 }
