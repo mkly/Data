@@ -88,4 +88,24 @@ class DataTypeTest extends DataDatabaseTestCase {
 		$this->assertEquals('Two', $xml->xpath('//datatype/attributekeys/attributekey')[1]->attributes()->name);
 	}
 
+	public function testGetByID() {
+		$dataType = $this->createTestDataType();
+		$newDataType = DataType::getByID($dataType->dtID);
+		$this->assertEquals('testing', $newDataType->dtHandle);
+	}
+
+	public function testGetByHandle() {
+		$dataType = $this->createTestDataType();
+		$newDataType = DataType::getByHandle($dataType->dtHandle);
+		$this->assertEquals('testing', $newDataType->dtHandle);
+	}
+
+	protected function createTestDataType() {
+		$dataType = new DataType;
+		$dataType->dtName = 'Testing';
+		$dataType->dtHandle = 'testing';
+		$dataType->Insert();
+		return $dataType;
+	}
+
 }

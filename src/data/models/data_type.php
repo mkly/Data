@@ -7,6 +7,30 @@ class DataType extends Model {
 	protected $permissionKeyCategory;
 	protected $permissions;
 	protected $attributes;
+	
+	/**
+	 * @param $dtID int
+	 * @return DataType|null Null if DataType not found
+	 */
+	static public function getByID($dtID) {
+		$dataType = new DataType;
+		if ($dataType->Load('dtID=?', array($dtID))) {
+    	return $dataType;
+		}
+		return null;
+	}
+
+	/**
+	 * @param $dtHandle string
+	 * @return DataType|null Null if DataType not found
+	 */
+	static public function getByHandle($dtHandle) {
+		$dataType = new DataType($dtHandle);
+		if ($dataType->Load('dtHandle=?', array($dtHandle))) {
+			return $dataType;
+		}
+		return null;
+	}
 
 	public function __get($name) {
 		$method = 'get' . ucfirst($name);

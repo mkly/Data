@@ -13,6 +13,32 @@ class DataList extends DatabaseItemList {
 	public function __construct($dataType) {
 		$this->dataType = $dataType;
 	}
+	
+	/**
+	 * @param $dtID int
+	 * @return DataType|null Null if DataType not found
+	 */
+	static public function getByDataTypeID($dtID) {
+		$dataType = new DataType;
+		if ($dataType->Load('dtID=?', array($dtID))) {
+			$dataList = new DataList($dataType);
+			return $dataList;
+		}
+		return null;
+	}
+
+	/**
+	 * @param $dtHandle string
+	 * @return DataType|null Null if DataType not found
+	 */
+	static public function getByDataTypeHandle($dtHandle) {
+		$dataType = new DataType;
+		if ($dataType->Load('dtHandle=?', array($dtHandle))) {
+			$dataList = new DataList($dataType);
+			return $dataList;
+		}
+		return null;
+	}
 
 	protected function setBaseQuery() {
 		$this->setQuery('
@@ -82,5 +108,12 @@ class DataList extends DatabaseItemList {
 			return;
 		}
 		$this->filterByAttribute($handle, $args[0]);
+	}
+
+	/**
+	 * @return DataType
+	 */
+	public function getDataType() {
+		return $this->dataType;
 	}
 }
