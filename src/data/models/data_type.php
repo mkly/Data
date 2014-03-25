@@ -8,23 +8,28 @@ class DataType extends Model {
 	protected $permissions;
 	protected $attributes;
 	
-	public function __construct($args = null){
-    	parent::__construct();
-    	if(is_int($args)){
-        	self::Load('dtID=?', array($args));
-    	}else if(is_string($args)){
-        	self::Load('dtHandle=?', array($args));
-    	}
-	}
-	
+	/**
+	 * @param $dtID int
+	 * @return DataType|null Null if DataType not found
+	 */
 	static public function getByID($dtID) {
-    	$dataType = new DataType($dtID);
+		$dataType = new DataType;
+		if ($dataType->Load('dtID=?', array($dtID))) {
     	return $dataType;
+		}
+		return null;
 	}
 
+	/**
+	 * @param $dtHandle string
+	 * @return DataType|null Null if DataType not found
+	 */
 	static public function getByHandle($dtHandle) {
-        $dataType = new DataType($dtHandle);
-        return $dataType;
+		$dataType = new DataType($dtHandle);
+		if ($dataType->Load('dtHandle=?', array($dtHandle))) {
+			return $dataType;
+		}
+		return null;
 	}
 
 	public function __get($name) {
