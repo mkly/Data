@@ -7,6 +7,25 @@ class DataType extends Model {
 	protected $permissionKeyCategory;
 	protected $permissions;
 	protected $attributes;
+	
+	public function __construct($args = null){
+    	parent::__construct();
+    	if(is_int($args)){
+        	self::Load('dtID=?', array($args));
+    	}else if(is_string($args)){
+        	self::Load('dtHandle=?', array($args));
+    	}
+	}
+	
+	static public function getByID($dtID) {
+    	$dataType = new DataType($dtID);
+    	return $dataType;
+	}
+
+	static public function getByHandle($dtHandle) {
+        $dataType = new DataType($dtHandle);
+        return $dataType;
+	}
 
 	public function __get($name) {
 		$method = 'get' . ucfirst($name);

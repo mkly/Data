@@ -13,6 +13,24 @@ class DataList extends DatabaseItemList {
 	public function __construct($dataType) {
 		$this->dataType = $dataType;
 	}
+	
+	static public function getByID($dtID) {
+    	return self::_getByDataType($dtHandle);
+	}
+
+	static public function getByHandle($dtHandle) {
+    	return self::_getByDataType($dtHandle);
+	}
+
+    static private function _getByDataType($args) {
+        Loader::model("data_type","data");
+    	$dataType = new DataType($args);
+    	if(is_object($dataType)){
+        	$dataList = new DataList($dataType);
+        	return $dataList;
+    	}
+    	return null;
+    }
 
 	protected function setBaseQuery() {
 		$this->setQuery('
