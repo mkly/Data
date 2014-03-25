@@ -4,7 +4,7 @@
 <form method="post">
 <div class="ccm-pane-body">
 	<h2><?= t('Warning') ?></h2>
-	<p><?= t('You are about to delete the %s%s%s. There is no undo.', $dataType->dtName, ' ', '<strong>' . $data->name->getValue('display') . '</strong>') ?></p>
+	<p><?= t(/*i18n: %s is a DataType Name and a Data Name*/'You are about to delete %s. There is no undo.', $dataType->dtName . ' ' . '<strong>' . $data->name->getValue('display') . '</strong>') ?></p>
 </div>
 <div class="ccm-pane-footer">
 	<div class="ccm-buttons">
