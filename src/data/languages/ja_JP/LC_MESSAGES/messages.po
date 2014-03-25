@@ -1,0 +1,457 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Data\n"
+"POT-Creation-Date: 2014-03-05 08:13+0100\n"
+"PO-Revision-Date: 2014-03-26 08:00+0900\n"
+"Last-Translator: Tao Sasaki <tao@xross-cube.com>\n"
+"Language-Team: concrete5 Japan <info@concrete5-japan.org>\n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-KeywordsList: t\n"
+"X-Poedit-SearchPath-0: C:\\Work\\Data\n"
+
+#: C:\Work\Data/src/data/controller.php:11
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/view.php:2
+msgid "Data"
+msgstr "データ"
+
+#: C:\Work\Data/src/data/controller.php:15
+msgid "Data for concrete5"
+msgstr "concrete5内で各種データオブジェクトを作成します"
+
+#: C:\Work\Data/src/data/controller.php:60
+msgid "Data Simple Association"
+msgstr "データ連携"
+
+#: C:\Work\Data/src/data/controller.php:61
+msgid "Data Single Child Association"
+msgstr "単一データ連携"
+
+#: C:\Work\Data/src/data/controller.php:126
+#: C:\Work\Data/src/data/controller.php:127
+msgid "View Data Type"
+msgstr "データタイプを表示"
+
+#: C:\Work\Data/src/data/controller.php:130
+#: C:\Work\Data/src/data/controller.php:131
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/delete.php:2
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/edit.php:2
+msgid "Edit Data Type"
+msgstr "データタイプを編集"
+
+#: C:\Work\Data/src/data/controller.php:134
+#: C:\Work\Data/src/data/controller.php:135
+msgid "Delete Data Type"
+msgstr "データタイプを削除"
+
+#: C:\Work\Data/src/data/controller.php:138
+#: C:\Work\Data/src/data/controller.php:139
+msgid "Edit Data Type Permissions"
+msgstr "データタイプの権限を編集"
+
+#: C:\Work\Data/src/data/controller.php:142
+#: C:\Work\Data/src/data/controller.php:143
+msgid "Edit Data"
+msgstr "データを編集"
+
+#: C:\Work\Data/src/data/controller.php:146
+#: C:\Work\Data/src/data/controller.php:147
+msgid "Delete Data"
+msgstr "データを削除"
+
+#: C:\Work\Data/src/data/controller.php:150
+#: C:\Work\Data/src/data/controller.php:151
+msgid "Create Data"
+msgstr "データを作成"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:12
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:40
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:80
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:126
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:86
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:132
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:163
+#: C:\Work\Data/src/data/controllers/dashboard/data/management/controller.php:15
+msgid "Data Type Not Found"
+msgstr "データタイプが見つかりません。"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:27
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:117
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:142
+#: C:\Work\Data/src/data/models/attribute/types/data_simple_association/type_form.php:6
+#: C:\Work\Data/src/data/models/attribute/types/data_single_child_association/type_form.php:6
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:2
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/view.php:5
+msgid "Data Type"
+msgstr "データタイプ"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:45
+msgid "Attribute Type Not Found"
+msgstr "属性が見つかりません。"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:56
+msgid "Attribute Added"
+msgstr "属性を追加しました。"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:59
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:95
+#: C:\Work\Data/src/data/controllers/dashboard/data/management/controller.php:144
+msgid "Unknown Error"
+msgstr "なんだかよくわからんがエラー"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:61
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:98
+msgid "** None"
+msgstr "** 無し"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:86
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:130
+msgid "Attribute Key Not Found"
+msgstr "属性キーが見つかりません。"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:92
+msgid "Attribute Updated"
+msgstr "属性を更新しました。"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:118
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:143
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:6
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:36
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/view.php:6
+msgid "Attributes"
+msgstr "属性"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/attributes/controller.php:135
+msgid "Attribute Deleted"
+msgstr "属性を削除しました。"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:27
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:45
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:120
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:201
+msgid "Data Types"
+msgstr "データタイプ"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:76
+msgid "Data Type Created"
+msgstr "データタイプを作成しました。"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:91
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:137
+#: C:\Work\Data/src/data/controllers/dashboard/data/management/controller.php:22
+msgid "Access Denied"
+msgstr "アクセス不可"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:107
+msgid "Data Type Updated"
+msgstr "データタイプを更新しました。"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:121
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:151
+msgid "View"
+msgstr "表示"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:143
+msgid "Data Type Deleted"
+msgstr "データタイプを削除しました。"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:150
+#: C:\Work\Data/src/data/controllers/dashboard/data/management/controller.php:153
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:36
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/search.php:19
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/view.php:22
+msgid "Edit"
+msgstr "編集"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:178
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:184
+msgid "Invalid File"
+msgstr "無効なファイルです"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:188
+msgid "File must be .xml"
+msgstr "ファイルの拡張子が.xmlである必要があります。"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/administration/controller.php:196
+msgid "Data Type Imported"
+msgstr "データタイプをインポートしました。"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/management/controller.php:29
+#: C:\Work\Data/src/data/controllers/dashboard/data/management/controller.php:66
+#: C:\Work\Data/src/data/controllers/dashboard/data/management/controller.php:112
+#: C:\Work\Data/src/data/controllers/dashboard/data/management/controller.php:152
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/search.php:7
+msgid "Search"
+msgstr "検索"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/management/controller.php:61
+msgid "Data Created"
+msgstr "データを作成しました。"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/management/controller.php:107
+msgid "Data Updated"
+msgstr "データを更新しました。"
+
+#: C:\Work\Data/src/data/controllers/dashboard/data/management/controller.php:141
+msgid "Data Deleted"
+msgstr "データを削除しました。"
+
+#: C:\Work\Data/src/data/elements/permission/lists/data_type.php:31
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/create.php:13
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/edit.php:13
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/import.php:10
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/delete.php:12
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/edit.php:13
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: C:\Work\Data/src/data/elements/permission/lists/data_type.php:32
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/edit.php:12
+msgid "Save"
+msgstr "保存"
+
+#: C:\Work\Data/src/data/models/attribute/types/data_simple_association/type_form.php:3
+msgid "Simple Association"
+msgstr "単純な連携"
+
+#: C:\Work\Data/src/data/models/attribute/types/data_simple_association/type_form.php:12
+msgid "Allow Mutliple Associations"
+msgstr "複数連携を許可"
+
+#: C:\Work\Data/src/data/models/attribute/types/data_single_child_association/type_form.php:3
+msgid "Single Child Association"
+msgstr "単一子連携"
+
+#: C:\Work\Data/src/data/models/data.php:154
+#: C:\Work\Data/src/data/models/data_type.php:62
+msgid "Invalid Element"
+msgstr "無効なエレメント"
+
+#: C:\Work\Data/src/data/models/data.php:158
+msgid "DataType handle dtHandle not found"
+msgstr "データタイプハンドル、dtHandleが見つかりません。"
+
+#: C:\Work\Data/src/data/models/data.php:162
+msgid "DataType not found"
+msgstr "データタイプが見つかりません。"
+
+#: C:\Work\Data/src/data/models/data_type.php:101
+msgid "Maximum Name length is 255 characters"
+msgstr "名前は255文字以下の必要があります。"
+
+#: C:\Work\Data/src/data/models/data_type.php:104
+msgid "Maximum Handle length is 255 characters"
+msgstr "ハンドルは255文字以下の必要があります。"
+
+#: C:\Work\Data/src/data/models/data_type.php:107
+msgid "Handle can only contain a-z 0-9 and _"
+msgstr ""
+"ハンドルに利用できる文字は半角小文字アルファベットと半角数字、_（アンダースコ"
+"ア）のみです。"
+
+#: C:\Work\Data/src/data/models/data_type.php:110
+msgid "Name is required"
+msgstr "名前は必須項目です。"
+
+#: C:\Work\Data/src/data/models/data_type.php:113
+msgid "Handle is required"
+msgstr "ハンドルは必須項目です。"
+
+#: C:\Work\Data/src/data/models/data_type.php:124
+#, php-format
+msgid "Name already in use by %s"
+msgstr "この名前は既に「%s」で使われています。"
+
+#: C:\Work\Data/src/data/models/data_type.php:131
+#, php-format
+msgid "Handle already in use by %s"
+msgstr "このハンドルは既に「%s」で使われています。"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/create.php:3
+#, php-format
+msgid "Add %s Attribute"
+msgstr "属性「%s」を追加しました。 "
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/create.php:8
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/edit.php:8
+#, php-format
+msgid "%s: Basic Details"
+msgstr "%s: 基本情報"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/create.php:11
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/edit.php:11
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/create.php:5
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/edit.php:7
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:5
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:10
+msgid "Handle"
+msgstr "ハンドル"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/create.php:18
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/edit.php:18
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/create.php:7
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/edit.php:5
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/search.php:12
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:9
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/data_types.php:5
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/search.php:15
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/view.php:9
+msgid "Name"
+msgstr "名前"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/create.php:25
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/edit.php:25
+msgid "Set"
+msgstr "セット"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/create.php:32
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/edit.php:32
+msgid "Searchable"
+msgstr "検索可"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/create.php:35
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/edit.php:35
+msgid "Content included in data keyword search."
+msgstr "キーワード検索に含める"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/create.php:36
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/edit.php:36
+msgid "Field available in Dashboard data search."
+msgstr "管理画面での検索対象に含める"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/create.php:49
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/create.php:12
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/search.php:5
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/create.php:11
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/search.php:29
+msgid "Create"
+msgstr "作成"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/delete.php:3
+#, php-format
+msgid "Delete %s Attribute"
+msgstr "属性「%s」を削除しました。"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/delete.php:6
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/delete.php:6
+msgid "Warning"
+msgstr "警告"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/delete.php:7
+#, php-format
+msgid "You are about to delete the attribute%s%s. There is no undo."
+msgstr "属性「%s%s」を削除しようとしています。これは元に戻せません。"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/delete.php:11
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/edit.php:50
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/delete.php:9
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/edit.php:13
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/delete.php:11
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/edit.php:12
+msgid "Delete"
+msgstr "削除"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/edit.php:3
+#, php-format
+msgid "Edit %s Attribute"
+msgstr "属性「%s」を編集"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/edit.php:49
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/edit.php:11
+msgid "Update"
+msgstr "更新"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/view.php:2
+#, php-format
+msgid "%s Attributes"
+msgstr "属性 %s"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/view.php:11
+msgid "Add Attribute"
+msgstr "属性を追加"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/view.php:14
+msgid "Add"
+msgstr "追加"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/attributes/view.php:21
+msgid "Done"
+msgstr "完了"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/create.php:2
+msgid "Create Data Type"
+msgstr "データタイプを作成"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/import.php:2
+msgid "Import Data Type"
+msgstr "データタイプをインポート"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/import.php:9
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/search.php:6
+msgid "Import"
+msgstr "インポート"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/search.php:2
+msgid "Data Type Administration"
+msgstr "データタイプ管理"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/search.php:15
+msgid "No Data Types found"
+msgstr "データタイプが見つかりません。"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:11
+msgid "Type"
+msgstr "タイプ"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:14
+msgid "No attributes found"
+msgstr "属性が見つかりません。"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:31
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:36
+msgid "Permissions"
+msgstr "権限"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:36
+msgid "Metadata"
+msgstr "メタデータ"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/administration/view.php:36
+msgid "Export"
+msgstr "エクスポート"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/data_types.php:2
+msgid "Data Type Management"
+msgstr "データタイプ操作"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/delete.php:3
+msgid "Delete Attribute"
+msgstr "属性を削除"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/delete.php:7
+#, php-format
+msgid "You are about to delete the %s%s%s. There is no undo."
+msgstr "%s%s%sを削除しようとしています。これは元に戻せません。"
+
+#: C:\Work\Data/src/data/single_pages/dashboard/data/management/view.php:10
+msgid "Value"
+msgstr "値"
+
+#: C:\Work\Data/tests/install/packages/data_test/controller.php:9
+msgid "Data Test"
+msgstr "データテスト"
+
+#: C:\Work\Data/tests/install/packages/data_test/controller.php:13
+msgid "Data test sample content"
+msgstr "データテスト サンプルコンテンツ"
+
+msgid "Management"
+msgstr "操作"
+
+msgid "Administration"
+msgstr "管理"
