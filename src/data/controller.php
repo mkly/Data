@@ -92,10 +92,10 @@ class DataPackage extends Package {
 				$sp = Page::getByPath('/dashboard/' . $path);
 			}
 			$sp->update($info);
-			switch($path) {
-				case 'data/administration/attributes':
-					$sp->setAttribute('exclude_nav', 1);
-					break;
+			if (in_array($path, array(
+				'data/administration/attributes'
+			))) {
+				$sp->setAttribute('exclude_nav', 1);
 			}
 		}
 

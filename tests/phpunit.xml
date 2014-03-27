@@ -21,6 +21,7 @@
 			<file>./tests/models/permission/keys/data_type.php</file>
 			<file>./tests/models/permission/access/categories/data_type.php</file>
 			<file>./tests/models/permission/access/list_items/data_type.php</file>
+			<file>./tests/package/installation.php</file>
 		</testsuite>
 	</testsuites>
 
