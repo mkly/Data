@@ -83,19 +83,20 @@ class DataPackage extends Package {
 
 
 		foreach (array(
-			'data',
-			'data/management',
-			'data/administration'
-		) as $path) {
-			SinglePage::add('/dashboard/' . $path, $pkg);
-		}
-		foreach (array(
-			'data/administration/attributes',
-		) as $path) {
+			'data' => array('cName' => t('Data')),
+			'data/management' => array('cName' => t('Data Management')),
+			'data/administration' => array('cName' => t('Data Administration')),
+			'data/administration/attributes' => array('cName' => t('Attributes'))
+		) as $path => $info) {
 			if (!$sp = SinglePage::add('/dashboard/' . $path, $pkg)) {
 				$sp = Page::getByPath('/dashboard/' . $path);
 			}
-			$sp->setAttribute('exclude_nav', 1);
+			$sp->update($info);
+			switch($path) {
+				case 'data/administration/attributes':
+					$sp->setAttribute('exclude_nav', 1);
+					break;
+			}
 		}
 
 		foreach (array(
