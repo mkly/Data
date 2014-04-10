@@ -25,6 +25,12 @@
 </div>
 <div class="ccm-pane-footer">
 	<div class="ccm-buttons">
+		<?php if ($dataType->permissions->canViewData()) { ?>
+			<?= $interface->button(t('Download CSV'), $this->url('/dashboard/data/management/download_csv', $dataType->dtID), 'left') ?>
+		<?php } ?>
+		<?php if ($dataType->permissions->canViewData()) { ?>
+			<?= $interface->button(t('Download XML'), $this->url('/dashboard/data/management/download_xml', $dataType->dtID), 'left') ?>
+		<?php } ?>
 		<?php if ($dataType->permissions->canCreateData()) { ?>
 			<?= $interface->button(t('Create'), $this->url('/dashboard/data/management/create', $dataType->dtID)) ?>
 		<?php } ?>
