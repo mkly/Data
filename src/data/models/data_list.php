@@ -116,21 +116,4 @@ class DataList extends DatabaseItemList {
 	public function getDataType() {
 		return $this->dataType;
 	}
-	
-	/**
-	 * @param SimpleXMLElement $xml
-	 */
-	public function export($xml) {
-		$node = $xml->addChild('datalist');
-		$node->addAttribute('dtHandle', $this->dtHandle);
-		$node->addAttribute('dtName', $this->dtName);
-		$attributes = $node->addChild('datasets');
-		
-		$datas = $this->get($this->getTotal(), 0);
-		/*
-		foreach ($datas as $data) {
-			$attribute->export($attributes);
-		}*/
-		return $node;
-	}
 }
