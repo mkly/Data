@@ -175,5 +175,95 @@ class DashboardDataManagementController extends DataDashboardBaseController {
 
 		$this->render('search');
 	}
+		
+	/**
+	 * @param int $dtID
+	 */
+	public function download_xml($dtID) {
+		// Check data presence
+		$dataType = new DataType;
+		if (!$dataType->Load('dtID=?', array($dtID))) {
+			$this->flashError(t('Data Type Not Found'));
+			$this->redirect($this->path());
+		}
+		$dataList = new DataList( $dataType );
+		if ($dataList->getTotal() === 0) {
+			$this->flashError(t('Dataset Is Empty'));
+			$this->redirect($this->path());
+		}
+		
+		// Build xml
+		$xml = new SimpleXMLElement('<xml/>');
+		$xml->addAttribute('version', '1.0');
+		$xml->addAttribute('encoding', 'utf-8');
+		$list = $xml->addChild( $dataType->dtHandle );
+		$datas = $dataList->get();
+		foreach($datas as $d){
+			$ak = new DataAttributeKey;
+			$avl = $ak->getAttributes($d->dID, 'getValue');
+			$b = $list->addChild( $dataType->dtHandle );
+			$b->addChild('dID', $d->dID);
+			foreach($avl as $key => $value) {
+				$b->addChild( $key, $value );
+			}
+		}
+		
+		// Set header and output
+		$filename = $dataType->dtHandle.'.xml';
+		$now = gmdate("D, d M Y H:i:s");
+		header("Cache-Control: max-age=0, no-cache, must-revalidate, proxy-revalidate");
+		header("Last-Modified: {$now} GMT");
+		header("Content-Type: application/force-download");
+		header("Content-Type: application/octet-stream");
+		header("Content-Type: application/download");
+		header("Content-Disposition: attachment;filename={$filename}");
+		header("Content-Transfer-Encoding: utf-8");
+		header('Content-Type: text/xml');
+		echo $xml->asXML();
+		exit;
+	}
+
+	/**
+	 * @param int $dtID
+	 */
+	public function download_csv($dtID) {
+		// Check data presence
+		$dataType = new DataType;
+		if (!$dataType->Load('dtID=?', array($dtID))) {
+			$this->flashError(t('Data Type Not Found'));
+			$this->redirect($this->path());
+		}
+		$dataList = new DataList( $dataType );
+		if ($dataList->getTotal() === 0) {
+			$this->flashError(t('Dataset Is Empty'));
+			$this->redirect($this->path());
+		}
+		
+		// Build csv
+		$fh = fopen('php://output', 'w');
+		$datas = $dataList->get();
+		foreach($datas as $d){
+			$ak = new DataAttributeKey;
+			$avl = $ak->getAttributes($d->dID, 'getValue');
+			foreach($avl as $key => $value) {
+				$dataset[$key] = $value;
+			}
+			fputcsv($fh, $dataset);
+		}
+		fclose($fh);
+		
+		// Set header and output
+		$filename = $dataType->dtHandle.'.csv';
+		$now = gmdate("D, d M Y H:i:s");
+		header("Cache-Control: max-age=0, no-cache, must-revalidate, proxy-revalidate");
+		header("Last-Modified: {$now} GMT");
+		header("Content-Type: application/force-download");
+		header("Content-Type: application/octet-stream");
+		header("Content-Type: application/download");
+		header("Content-Disposition: attachment;filename={$filename}");
+		header("Content-Transfer-Encoding: utf-8");
+		header('Content-Type: text/csv');
+		exit;
+	}
 
 }
