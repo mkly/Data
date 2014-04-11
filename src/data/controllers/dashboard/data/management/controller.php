@@ -204,7 +204,10 @@ class DashboardDataManagementController extends DataDashboardBaseController {
 			$b = $list->addChild( $dataType->dtHandle );
 			$b->addChild('dID', $d->dID);
 			foreach($avl as $key => $value) {
-				$b->addChild( $key, $value );
+				$cnode = $b->addChild( $key );
+				$node = dom_import_simplexml( $cnode );
+				$no = $node->ownerDocument;
+				$node->appendChild($no->createCDataSection( $value ));
 			}
 		}
 		
