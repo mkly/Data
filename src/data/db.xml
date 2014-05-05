@@ -85,7 +85,7 @@
 			<UNSIGNED/>
 		</field>
 	</table>
-	<table name="atDataHasOneAttributeTypeSettings">
+	<table name="atDataSingleChildAssociationAttributeTypeSettings">
 		<field name="aID" type="I" size="10">
 			<KEY/>
 			<UNSIGNED/>
@@ -100,7 +100,7 @@
 			<UNSIGNED/>
 		</field>
 	</table>
-	<table name="atDataHasOne">
+	<table name="atSingleChildAssociation">
 		<field name="avID" type="I" size="10">
 			<KEY/>
 			<NOTNULL/>
