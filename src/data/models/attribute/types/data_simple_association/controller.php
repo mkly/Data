@@ -224,7 +224,15 @@ class DataSimpleAssociationAttributeTypeController extends AttributeTypeControll
 	 */
 	public function saveKey($data) {
 		$this->settings = $this->getSettings();
-		$this->settings->dtID = $data['assoc_dtID'];
+		/**
+		 * TODO Fixme
+		 * Hack for how the attribute form is done
+		 * Should fix attribute form to just dtID
+		 */
+		$dtID = isset($data['assoc_dtID'])
+		        ? $data['assoc_dtID']
+		        : $data['dtID'];
+		$this->settings->dtID = $dtID;
 		$this->settings->multipleAssociations = isset($data['multipleAssociations']) ? 1 : 0;
 		$this->settings->akID = $this->getAttributeKey()->getAttributeKeyID();
 		$this->settings->Save();
