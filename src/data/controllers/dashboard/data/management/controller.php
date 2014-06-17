@@ -113,6 +113,43 @@ class DashboardDataManagementController extends DataDashboardBaseController {
 		);
 		$this->render('edit');
 	}
+	
+	/**
+	 * @param $dtID int
+	 * @param $dID int
+	 */
+	public function duplicate($dtID, $dID) {
+		$dataType = new DataType;
+		if (!$dataType->Load('dtID=?', array($dtID))) {
+			$this->flashError('Data Type Not Found');
+			$this->redirect($this->path());
+		}
+
+		if (!$dataType->permissions->canEditData()) {
+			$this->flashError('Access Denied');
+			$this->redirect($this->path());
+		}
+
+		$data = new Data;
+		if (!$data->Load('dID=?', array($dID))) {
+			$this->flashError('Data Not Found');
+			$this->redirect($this->path(), $dataType->dtID);
+		}
+		
+		$db = Loader::db();
+		$data2 = clone $data;
+		$data2->dID = null;
+		$data2->Insert();
+		$dIDNew = $db->Insert_ID();
+		
+		$attributes = DataAttributeKey::getListByDataTypeID($dtID);
+		foreach($attributes as $ak){
+			$data2->setAttribute($ak, $data->getAttributeValueObject($ak)->getValue());
+		}
+		
+		$this->flashSuccess(t('Data Duplicated'));
+		$this->redirect($this->path('search'), $dataType->dtID);
+	}
 
 	/**
 	 * @param $dtID int
