@@ -139,7 +139,7 @@ class DashboardDataManagementController extends DataDashboardBaseController {
 		if ($this->isPost()) {
 			if ($data->Delete()) {
 				$this->flashSuccess(t('Data Deleted'));
-				$this->redirect($this->path());
+				$this->redirect($this->path('search'), $dataType->dtID);
 			}
 			$this->flashError(t('Unknown Error'));
 		}
