@@ -4,6 +4,7 @@ defined('C5_EXECUTE') or die('Access Denied.');
 class Data extends Model {
 
 	public $_table = 'Datas';
+	private $_indexingDisabled = false;
 
 	/**
 	 * $data = new Data;
@@ -133,7 +134,19 @@ class Data extends Model {
 		return $avos;
 	}
 
+	public function disableIndexing() {
+		$this->_indexingDisabled = true;
+	}
+
+	public function enableIndexing() {
+		$this->_indexingDisabled = false;
+	}
+
 	public function reindex() {
+		if ($this->_indexingDisabled) {
+			return;
+		}
+
 		$db = Loader::db();
 		$db->Execute('
 			DELETE
