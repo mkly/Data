@@ -10,6 +10,8 @@ install:
   - pyrus install --force phpunit/DbUnit
 
 before_script:
+  - composer self-update
+  - composer install --no-interaction --prefer-source --dev
   - echo 'short_open_tag = On' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - mysql -e 'create database tests;'
   - mkdir -p ./tests/core/concrete5

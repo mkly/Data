@@ -1,0 +1,19 @@
+{
+    "name": "mkly/data",
+    "description": "Create custom objects to attach attributes to in concrete5 without writing any code.",
+    "keywords": ["concrete5", "data", "attributes"],
+    "homepage": "https://github.com/mkly/Data",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mike Lay"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.1.*",
+        "phpunit/dbunit": ">=1.2"
+    }
+}
