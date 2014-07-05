@@ -1,6 +1,6 @@
 <?php
 $config = array(
-	'db-server' => 'localhost',
+	'db-server' => '127.0.0.1',
 	'db-username' => 'travis',
 	'db-database' => 'test',
 	'db-password' => '',
