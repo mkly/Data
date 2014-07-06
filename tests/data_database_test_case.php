@@ -1,5 +1,5 @@
 <?php
-require_once "PHPUnit/Extensions/Database/Autoload.php";
+require_once(dirname(__FILE__) . '/../vendor/autoload.php');
 
 abstract class DataDatabaseTestCase extends PHPUnit_Extensions_Database_TestCase {
 
