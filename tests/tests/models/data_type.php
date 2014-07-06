@@ -85,7 +85,8 @@ class DataTypeTest extends DataDatabaseTestCase {
 		$exportedXML = $dataType->export($xml);
 		$this->assertInstanceOf('SimpleXMLElement', $exportedXML);
 		$this->assertCount(2, $xml->xpath('//datatype/attributekeys/attributekey'));
-		$this->assertEquals('Two', $xml->xpath('//datatype/attributekeys/attributekey')[1]->attributes()->name);
+		$el = $xml->xpath('//datatype/attributekeys/attributekey');
+		$this->assertEquals('Two', $el[1]->attributes()->name);
 	}
 
 	public function testGetByID() {
