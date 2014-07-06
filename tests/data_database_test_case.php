@@ -3,6 +3,13 @@ require_once(dirname(__FILE__) . '/../vendor/autoload.php');
 
 abstract class DataDatabaseTestCase extends PHPUnit_Extensions_Database_TestCase {
 
+	public $fixturesDir;
+
+	public function __construct() {
+		parent::__construct();
+		$this->fixturesDir = CONCRETE_5_DATA_TEST_DIR . '/fixtures/';
+	}
+
 	public function getConnection() {
 		$db = Loader::db();
 		$pdo = new PDO('mysql:host=' . DB_SERVER . ';dbname=' . DB_DATABASE, DB_USERNAME, DB_PASSWORD);
@@ -16,7 +23,14 @@ abstract class DataDatabaseTestCase extends PHPUnit_Extensions_Database_TestCase
 			$this->createMySQLXMLDataSet($dir . 'Datas.xml'),
 			$this->createMySQLXMLDataSet($dir . 'DataTypes.xml'),
 			$this->createMySQLXMLDataSet($dir . 'DataAttributeKeys.xml'),
-			$this->createMySQLXMLDataSet($dir . 'AttributeKeys.xml')
+			$this->createMySQLXMLDataSet($dir . 'AttributeKeys.xml'),
+			$this->createMySQLXMLDataSet($dir . 'AttributeTypes.xml'),
+			$this->createMySQLXMLDataSet($dir . 'AttributeKeyCategories.xml'),
+			$this->createMySQLXMLDataSet($dir . 'AttributeTypeCategories.xml'),
+			$this->createMySQLXMLDataSet($dir . 'AttributeSets.xml'),
+			$this->createMySQLXMLDataSet($dir . 'AttributeSetKeys.xml'),
+			$this->createMySQLXMLDataSet($dir . 'AttributeValues.xml'),
+			$this->createMySQLXMLDataSet($dir . 'Packages.xml')
 		));
 	}
 }

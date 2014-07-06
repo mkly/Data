@@ -1,6 +1,6 @@
 <?php
 
-class DataAttributeKeyTest extends PHPUnit_Framework_TestCase {
+class DataAttributeKeyTest extends DataDatabaseTestCase {
 
 	public function testAutoload() {
 		$this->assertInstanceOf('DataAttributeKey', new DataAttributeKey);
