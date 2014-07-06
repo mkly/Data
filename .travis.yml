@@ -5,11 +5,9 @@ php:
   - 5.4
   - 5.5
 
-install:
-  - pyrus set auto_discover 1
-  - pyrus install --force phpunit/DbUnit
-
 before_script:
+  - composer self-update
+  - composer install --no-interaction --prefer-source --dev
   - echo 'short_open_tag = On' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - mkdir -p ./tests/core/concrete5
   - git clone https://github.com/concrete5/concrete5.git ./tests/core/concrete5
@@ -17,7 +15,7 @@ before_script:
   - cp -a ./src/data ./tests/core/concrete5/web/packages/
   - ./tests/core/concrete5/cli/install-concrete5.php --config="./tests/test_config_travis.php"
   - mkdir ./tests/fixtures
-  - mysqldump --xml -t -u travis test > ./tests/fixtures/database.xml
-  - mysqldump -u travis test > ./tests/fixtures/database.sql
+  - mysqldump --xml -t -u travis tests > ./tests/fixtures/database.xml
+  - mysqldump -u travis tests > ./tests/fixtures/database.sql
   - cd tests
   - ./split_fixtures.php
