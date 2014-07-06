@@ -2,6 +2,23 @@
 
 class InstallationTest extends DataDatabaseTestCase {
 
+	public function getDataSet() {
+		$dataSet = parent::getDataSet();
+		foreach(array(
+			'Pages.xml',
+			'PagePaths.xml',
+			'Collections.xml',
+			'CollectionVersions.xml',
+			'CollectionAttributeValues.xml',
+			'CollectionSearchIndexAttributes.xml',
+			'atBoolean.xml') as $fixture) {
+			$dataSet->addDataSet(
+				$this->createMySQLXMLDataSet($this->fixturesDir . $fixture)
+			);
+		}
+		return $dataSet;
+	}
+
 	public function testIsInstalled() {
 		$this->assertInstanceOf('DataPackage', Package::getByHandle('data'));
 	}
