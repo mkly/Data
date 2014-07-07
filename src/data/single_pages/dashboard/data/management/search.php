@@ -16,11 +16,16 @@
 			</tr>
 		<?php $alt = ''; foreach ($datas as $data) { ?>
 			<tr class="ccm-list-record<?= $alt ?>">
-				<td><a href="<?= $this->url('/dashboard/data/management', $data->dID) ?>"><?= h($data->name->getValue('display')) ?></a>
-				<?php if ($data->getDataType()->permissions->canEditData()) { ?>
-					<?= $interface->button(t('Edit'), $this->url('/dashboard/data/management/edit', $dataType->dtID, $data->dID)) ?>
-					<?= $interface->button(t('Duplicate'), $this->url('/dashboard/data/management/duplicate', $dataType->dtID, $data->dID)) ?>
-				<?php } ?>
+				<td>
+					<?php if ($data->name) { ?>
+						<a href="<?= $this->url('/dashboard/data/management', $data->dID) ?>"><?= h($data->name->getValue('display')) ?></a>
+					<?php } else { ?>
+						<?= '&nbsp;' ?>
+					<?php } ?>
+					<?php if ($data->getDataType()->permissions->canEditData()) { ?>
+						<?= $interface->button(t('Edit'), $this->url('/dashboard/data/management/edit', $dataType->dtID, $data->dID)) ?>
+						<?= $interface->button(t('Duplicate'), $this->url('/dashboard/data/management/duplicate', $dataType->dtID, $data->dID)) ?>
+					<?php } ?>
 				</td>
 			</tr>
 		<?php $alt = $alt ? '' : ' ccm-list-record-alt'; } ?>
