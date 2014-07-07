@@ -20,7 +20,7 @@
 					<?php
 					if($data->name){
 						?>
-						<a href="<?= $this->url('/dashboard/data/management', $data->dID) ?>"><?php h($data->name->getValue('display')) ?></a>
+						<a href="<?= $this->url('/dashboard/data/management', $data->dID) ?>"><?= h($data->name->getValue('display')) ?></a>
 						<?php 
 						if ($data->getDataType()->permissions->canEditData()) {
 							$interface->button(t('Edit'), $this->url('/dashboard/data/management/edit', $dataType->dtID, $data->dID));
