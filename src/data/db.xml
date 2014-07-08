@@ -65,7 +65,6 @@
 		</field>
 		<index name="avID">
 			<col>avID</col>
-			<UNIQUE/>
 		</index>
 	</table>
 	<table name="DataTypePermissionAssignments">
