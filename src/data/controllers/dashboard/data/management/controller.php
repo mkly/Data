@@ -51,6 +51,11 @@ class DashboardDataManagementController extends DataDashboardBaseController {
 		$this->set('ah', Loader::helper('form/attribute'));
 		
 		if ($this->isPost()) {
+			Events::fire('on_before_data_insert', array(
+				'dtID' => $dtID,
+				'post' => $this->post()
+			));
+			
 			$data = new Data;
 			$data->dtID = $dtID;
 			$data->Insert();
@@ -58,6 +63,9 @@ class DashboardDataManagementController extends DataDashboardBaseController {
 				$dak = DataAttributeKey::getByID($akID);
 				$dak->saveAttributeForm($data);
 			}
+			
+			Events::fire('on_after_data_insert', $data);
+			
 			$this->flashSuccess(t('Data Created'));
 			$this->redirect($this->path('search'), $dataType->dtID);
 		}
@@ -100,10 +108,18 @@ class DashboardDataManagementController extends DataDashboardBaseController {
 		$this->set('ah', $ah);
 
 		if ($this->isPost()) {
+			Events::fire('on_before_data_update', array(
+				'data' => $data,
+				'post' => $this->post()
+			));
+			
 			foreach ($this->post('akID') as $akID => $values) {
 				$dak = DataAttributeKey::getByID($akID);
 				$dak->saveAttributeForm($data);
 			}
+			
+			Events::fire('on_after_data_update', $data);
+			
 			$this->flashSuccess(t('Data Updated'));
 			$this->redirect($this->path('search'), $dataType->dtID);
 		}
@@ -174,10 +190,14 @@ class DashboardDataManagementController extends DataDashboardBaseController {
 		}
 
 		if ($this->isPost()) {
+			Events::fire('on_before_data_delete', $data);
+			
 			if ($data->Delete()) {
+				Events::fire('on_after_data_delete', $dID);
 				$this->flashSuccess(t('Data Deleted'));
 				$this->redirect($this->path('search'), $dataType->dtID);
 			}
+			
 			$this->flashError(t('Unknown Error'));
 		}
 
