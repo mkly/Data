@@ -153,15 +153,7 @@ class DashboardDataManagementController extends DataDashboardBaseController {
 		}
 		
 		$db = Loader::db();
-		$data2 = clone $data;
-		$data2->dID = null;
-		$data2->Insert();
-		$dIDNew = $db->Insert_ID();
-		
-		$attributes = DataAttributeKey::getListByDataTypeID($dtID);
-		foreach($attributes as $ak){
-			$data2->setAttribute($ak, $data->getAttributeValueObject($ak)->getValue());
-		}
+		$data2 = $data->Duplicate();
 		
 		$this->flashSuccess(t('Data Duplicated'));
 		$this->redirect($this->path('search'), $dataType->dtID);

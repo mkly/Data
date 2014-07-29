@@ -117,6 +117,36 @@ class Data extends Model {
 		parent::Update();
 		$this->reindex();
 	}
+	
+	/**
+	 * Duplicates a data object
+	 * 
+	 * @return Data or false
+	 */
+	public function Duplicate(){
+		$db = Loader::db();
+		
+		$duplicate = clone $this;
+		$duplicate->dID = null;
+		$duplicate->Insert();
+		
+		$duplicate = new Data;
+		$duplicate->Load('dID=?', array($db->Insert_ID()));
+		
+		if(!$duplicate){
+			return false;
+		}
+		
+		$v = array($this->dID);
+		$q = "select * from DataAttributeValues where dID = ?";
+		$r = $db->query($q, $v);
+		while ($row = $r->fetchRow()) {
+			$v2 = array($duplicate->dID, $row['akID'], $row['avID']);
+			$db->query("insert into DataAttributeValues (dID, akID, avID) values (?, ?, ?)", $v2);
+		}
+		
+		return $duplicate;
+	}
 
 	public function getDataType() {
 		$dataType = new DataType;
