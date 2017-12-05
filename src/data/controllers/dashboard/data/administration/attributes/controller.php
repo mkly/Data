@@ -88,7 +88,7 @@ class DashboardDataAdministrationAttributesController extends DataDashboardBaseC
 		}
 
 		if ($this->isPost()) {
-			if ($ak->update(array('dtID' => $dataType->dtID) + $this->post(), $dataType)) {
+			if ($ak->updateData(array('dtID' => $dataType->dtID) + $this->post(), $dataType)) {
 				$this->flashSuccess(t('Attribute Updated'));
 				$this->redirect($this->path(), $dataType->dtID);
 			}
