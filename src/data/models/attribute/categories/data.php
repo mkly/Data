@@ -42,7 +42,7 @@ class DataAttributeKey extends AttributeKey {
 				$av = $data->getAttributeValueObject($ak);
 				$avl->addAttributeValue(
 					$ak,
-					$av->getValue($this)
+					$av->getValue()
 				);
 			}
 		}
@@ -53,7 +53,7 @@ class DataAttributeKey extends AttributeKey {
 	/**
 	 * @param $akID int
 	 */
-	public function load($akID) {
+	public function load($akID, $loadBy = 'akID') {
 		parent::load($akID);
 		$this->setPropertiesFromArray(Loader::db()->GetRow('
 			SELECT     dt.dtID dtID,
@@ -202,7 +202,7 @@ class DataAttributeKey extends AttributeKey {
 		return $dak;
 	}
 
-	public function update($args, $dataType) {
+	public function updateData($args, $dataType) {
 		$args['akHandle'] = 'data_' . $dataType->dtHandle . '_' . $args['akHandle'];
 		$ak = parent::update($args);
 		$db = Loader::db();
@@ -282,7 +282,7 @@ class DataAttributeKey extends AttributeKey {
 	 * @todo that AttributeKey is kind of awkward
 	 * @param SimpleXMLElement $xml
 	 */
-	public static function import($xml) {
+	public static function import(SimpleXMLElement $ak) {
 		$dataType = new DataType;
 		$dataType->Load('dtHandle=?', array($xml->attributes()->dtHandle));
 		if (Loader::db()->GetOne('

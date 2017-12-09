@@ -40,10 +40,6 @@ class DataType extends Model {
 		return parent::__get($name);
 	}
 
-	public function reset($name) {
-		unset($this->{$name});
-	}
-
 	protected function getDatas() {
 		if (isset($this->datas)) return $this->datas;
 
